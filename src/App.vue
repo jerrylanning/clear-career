@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <NavBar comp1="ClearCareer"/>
-    <Article/>
+    <div id="body">
+      <Article/>
+    </div>
   </div>
 </template>
 
@@ -25,5 +27,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#body {
+  top: 0;
+  position: relative;
+  height: 200px;
+  padding-top: 5%;
 }
 </style>

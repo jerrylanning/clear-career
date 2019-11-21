@@ -21,7 +21,10 @@
     /* Add a black background color to the top navigation */
     .topnav {
         background-color: cornflowerblue;
-        overflow: hidden;
+        top: 0;
+        z-index: 100;
+        position: fixed;
+        width: 100%;
     }
 
     /* Style the links inside the navigation bar */
