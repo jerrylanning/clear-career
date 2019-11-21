@@ -4,6 +4,7 @@
         <div><router-link to="/">Home</router-link></div>
         <div><router-link to="/register">Register</router-link></div>
         <div><router-link to="/login">Login</router-link></div>
+        <div><router-link to="/profile">Profile</router-link></div>
         <!--This is an example of bootstrap. In the class name of this button we add 'btn' which specifies this is
         a bootstrap button, and we add a second class called btn-primary to add the blue styling so we don't have to
         do this manually-->
