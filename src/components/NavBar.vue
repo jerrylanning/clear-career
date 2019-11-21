@@ -22,7 +22,7 @@
         // This is where you put method calls to manipulate the data
         methods: {
             help: function() {
-                alert("This is an alert!")
+                alert("This is button click!")
             }
         }
     }
