@@ -1,9 +1,9 @@
 <template>
     <div class="topnav">
-        <a class="active" href="/">{{comp1}}</a>
-        <a href="#news">Example 1</a>
-        <a href="#contact">Example 2</a>
-        <a href="#about">Example 3</a>
+        <div>{{comp1}}</div>
+        <div><router-link to="/">Home</router-link></div>
+        <div><router-link to="/register">Register</router-link></div>
+        <div><router-link to="/login">Login</router-link></div>
         <!--This is an example of bootstrap. In the class name of this button we add 'btn' which specifies this is
         a bootstrap button, and we add a second class called btn-primary to add the blue styling so we don't have to
         do this manually-->
@@ -32,7 +32,7 @@
     }
 
     /* Style the links inside the navigation bar */
-    .topnav a {
+    .topnav div {
         float: left;
         color: #f2f2f2;
         text-align: center;
@@ -42,16 +42,16 @@
     }
 
     /* Change the color of links on hover */
-    .topnav a:hover {
+    .topnav div:hover {
         background-color: #ddd;
         color: blue;
     }
 
     /* Add a color to the active/current link */
-    .topnav a.active {
+    .topnav div.active {
         color: white;
     }
-    .topnav a.active:hover {
+    .topnav div.active:hover {
         color: blue;
     }
 </style>

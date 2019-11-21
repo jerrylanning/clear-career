@@ -3,20 +3,18 @@
     <!--Declaring we want to use the NavBar Component we built-->
     <NavBar comp1="ClearCareer"/>
     <div id="body">
-      <!--We would change what is displayed in the body depending on our App's state/route-->
-      <Article/>
+      <!--We would change what is displayed in the body depending on our App's route-->
+      <router-view />
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar";
-import Article from "./components/Article";
 
 export default {
   name: 'app',
   components: {
-    Article,
     NavBar
   }
 }
@@ -34,6 +32,6 @@ export default {
 #body {
   top: 0;
   position: relative;
-  padding-top: 5%;
+  padding-top: 6%;
 }
 </style>
