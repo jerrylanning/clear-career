@@ -4,6 +4,7 @@
         <a href="#news">Example 1</a>
         <a href="#contact">Example 2</a>
         <a href="#about">Example 3</a>
+        <button class="btn btn-primary">Hello</button>
     </div>
 </template>
 
