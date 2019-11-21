@@ -1,7 +1,6 @@
 <template>
     <div class="topnav">
-        <div>{{comp1}}</div>
-        <div><router-link to="/">Home</router-link></div>
+        <div><router-link to="/">{{comp1}}</router-link></div>
         <div><router-link to="/register">Register</router-link></div>
         <div><router-link to="/login">Login</router-link></div>
         <div><router-link to="/profile">Profile</router-link></div>
