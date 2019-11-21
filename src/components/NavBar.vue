@@ -4,13 +4,17 @@
         <a href="#news">Example 1</a>
         <a href="#contact">Example 2</a>
         <a href="#about">Example 3</a>
-        <button class="btn btn-primary">Hello</button>
+        <!--This is an example of bootstrap. In the class name of this button we add 'btn' which specifies this is
+        a bootstrap button, and we add a second class called btn-primary to add the blue styling so we don't have to
+        do this manually-->
+        <button class="btn btn-primary">Bootstrap</button>
     </div>
 </template>
 
 <script>
     export default {
         name: "NavBar",
+        // Props are handed down from a parent element.
         props: {
             comp1: String
         }
@@ -18,7 +22,7 @@
 </script>
 
 <style scoped>
-    /* Add a black background color to the top navigation */
+    /* Add a blue background color to the top navigation while fixing it*/
     .topnav {
         background-color: cornflowerblue;
         top: 0;

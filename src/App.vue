@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <!--Declaring we want to use the NavBar Component we built-->
     <NavBar comp1="ClearCareer"/>
     <div id="body">
+      <!--We would change what is displayed in the body depending on our App's state/route-->
       <Article/>
     </div>
   </div>
@@ -32,7 +34,6 @@ export default {
 #body {
   top: 0;
   position: relative;
-  height: 200px;
   padding-top: 5%;
 }
 </style>
