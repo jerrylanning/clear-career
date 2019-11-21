@@ -7,7 +7,8 @@
         <!--This is an example of bootstrap. In the class name of this button we add 'btn' which specifies this is
         a bootstrap button, and we add a second class called btn-primary to add the blue styling so we don't have to
         do this manually-->
-        <button class="btn btn-primary">Bootstrap</button>
+        <!--When this button is clicked it will call the function help-->
+        <button v-on:click="help" class="btn btn-primary">Bootstrap</button>
     </div>
 </template>
 
@@ -17,6 +18,12 @@
         // Props are handed down from a parent element.
         props: {
             comp1: String
+        },
+        // This is where you put method calls to manipulate the data
+        methods: {
+            help: function() {
+                alert("This is an alert!")
+            }
         }
     }
 </script>
