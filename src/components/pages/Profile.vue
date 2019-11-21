@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    import StandardForm from "./StandardForm";
+    import StandardForm from "../assets/StandardForm";
     export default {
         name: "Profile",
         components: {StandardForm},
@@ -34,31 +34,24 @@
         methods: {
             changeUsername(event) {
                 this.username = event.target.value;
-                window.console.log("Child Username: ", event.target.value)
             },
             changePass(event) {
                 this.password = event.target.value;
-                window.console.log("Child Password: ", event.target.value)
             },
             changeFirst(event) {
                 this.firstName = event.target.value;
-                window.console.log("Child First: ", event.target.value)
             },
             changeLast(event) {
                 this.lastName = event.target.value;
-                window.console.log("Child Last: ", event.target.value)
             },
             changeEmail(event) {
                 this.email = event.target.value;
-                window.console.log("Child Email: ", event.target.value)
             },
             changeCity(event) {
                 this.city = event.target.value;
-                window.console.log("Child City: ", event.target.value)
             },
             changeCareer(event) {
                 this.career = event.target.value;
-                window.console.log("Child career: ", event.target.value)
             }
         }
     }
