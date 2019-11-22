@@ -34,4 +34,8 @@ export default {
   position: relative;
   padding-top: 6%;
 }
+
+h1 {
+  color: dodgerblue;
+}
 </style>
