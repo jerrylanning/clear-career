@@ -1,7 +1,7 @@
 <template>
     <div class="explore">
         <h1>Explore</h1>
-        <div class="search-explore-box">
+        <div class="search-explore-box outlineBox">
             <div class="form-inline">
                 <input class="form-control search-explore-bar" placeholder="Search Keyword"/>
                 <button class="btn search-button">search</button>
@@ -83,6 +83,12 @@
                 <label for="customRange1" class="max-label">200,000</label>
             </div>
         </div>
+        <div class="explore-career-container">
+            <ExploreCareer career="Psychology" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <ExploreCareer career="Front End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <ExploreCareer career="Back End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <ExploreCareer career="Full Stack" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+        </div>
     </div>
 </template>
 
@@ -90,10 +96,11 @@
     import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
     import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
     import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
+    import ExploreCareer from "../assets/ExploreCareer";
 
     export default {
         name: "Explore",
-
+        components: {ExploreCareer},
         computed: {
             rightArrow () {
                 return faArrowAltCircleRight
@@ -114,11 +121,8 @@
     }
     .search-explore-box {
         width: 80%;
-        height: 200%;
         margin-left: 10%;
         position: absolute;
-        outline-style: solid;
-        outline-color: lightblue;
     }
 
     .search-explore-bar {
@@ -196,6 +200,12 @@
     }
     .max-label {
         margin-left: 2%;
+    }
+    .explore-career-container {
+        margin-top: 20%;
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 5%;
     }
 
 </style>

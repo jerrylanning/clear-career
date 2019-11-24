@@ -35,6 +35,11 @@ export default {
   padding-top: 6%;
 }
 
+.outlineBox {
+  outline-style: solid;
+  outline-color: lightblue;
+}
+
 h1 {
   color: dodgerblue;
 }
