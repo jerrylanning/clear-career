@@ -49,12 +49,21 @@
                 </div>
             </div>
         </div>
+        <div class="mentor-card-container">
+            <MentorCard name="Dr. Mind Reader" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
+            <MentorCard name="Dr. Magneto" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
+            <MentorCard name="Dr. Doolittle" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
+            <MentorCard name="Dr. Psych" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
+
+        </div>
     </div>
 </template>
 
 <script>
+    import MentorCard from "../assets/MentorCard";
     export default {
-        name: "SearchMentors"
+        name: "SearchMentors",
+        components: {MentorCard}
     }
 </script>
 
@@ -104,6 +113,13 @@
 
     .dropdown-toggle:hover {
         background-color: cornflowerblue;
+    }
+
+    .mentor-card-container {
+        margin-left: 10%;
+        width: 80%;
+        text-align: center;
+        margin-bottom: 3%;
     }
 
 </style>
