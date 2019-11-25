@@ -2,7 +2,7 @@
     <div class="explore">
         <div class="heading-block">
             <h1 class="explore-heading">Explore</h1>
-            <div class="search-mentors"><router-link to="/login">Search Mentors</router-link></div>
+            <div class="search-mentors"><router-link to="/search-mentors">Search Mentors</router-link></div>
         </div>
         <div class="search-explore-box outlineBox">
             <div class="form-inline">
