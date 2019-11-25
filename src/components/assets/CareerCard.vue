@@ -23,7 +23,7 @@
 
 <script>
     export default {
-        name: "ExploreCareer",
+        name: "CareerCard",
         props: {
             career: String,
             description: String,
