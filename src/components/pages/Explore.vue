@@ -87,10 +87,10 @@
             </div>
         </div>
         <div class="explore-career-container">
-            <ExploreCareer career="Psychology" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
-            <ExploreCareer career="Front End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
-            <ExploreCareer career="Back End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
-            <ExploreCareer career="Full Stack" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <CareerCard career="Psychology" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <CareerCard career="Front End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <CareerCard career="Back End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+            <CareerCard career="Full Stack" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
         </div>
     </div>
 </template>
@@ -99,11 +99,11 @@
     import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
     import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
     import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
-    import ExploreCareer from "../assets/ExploreCareer";
+    import CareerCard from "../assets/CareerCard";
 
     export default {
         name: "Explore",
-        components: {ExploreCareer},
+        components: {CareerCard},
         computed: {
             rightArrow () {
                 return faArrowAltCircleRight
