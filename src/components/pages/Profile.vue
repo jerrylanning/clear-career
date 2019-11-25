@@ -1,18 +1,25 @@
 <template>
-    <div>
-        <h1 class="heading">My Information</h1>
-        <StandardForm heading="Username" type="email" placeHolder="aliceWonder" :val="username" :parentMethod="changeUsername"/>
-        <StandardForm heading="Password" type="password" placeHolder="Password" :val="password" :parentMethod="changePass"/>
-        <StandardForm heading="First Name" type="email" placeHolder="Alice" :val="firstName" :parentMethod="changeFirst"/>
-        <StandardForm heading="Last Name" type="email" placeHolder="Wonderland" :val="lastName" :parentMethod="changeLast"/>
-        <StandardForm heading="Email" type="email" placeHolder="alice@wonderland.com" :val="email" :parentMethod="changeEmail"/>
-        <StandardForm heading="City" type="email" placeHolder="Boston" :val="city" :parentMethod="changeCity"/>
-        <StandardForm heading="Career Interest" type="email" placeHolder="Psychology" :val="career" :parentMethod="changeCareer"/>
-        <div class="btn-group-lg">
-            <button class="btn btn-primary save">Save</button>
-            <button class="btn btn-primary cancel">Cancel</button>
-        </div>
-    </div>
+    <b-container>
+        <b-card>
+            <h1 class="heading">My Information</h1>
+            <br>
+            <b-card-text>
+                <StandardForm heading="Username" type="email" placeHolder="aliceWonder" :val="username" :parentMethod="changeUsername"/>
+                <StandardForm heading="Password" type="password" placeHolder="Password" :val="password" :parentMethod="changePass"/>
+                <StandardForm heading="First Name" type="email" placeHolder="Alice" :val="firstName" :parentMethod="changeFirst"/>
+                <StandardForm heading="Last Name" type="email" placeHolder="Wonderland" :val="lastName" :parentMethod="changeLast"/>
+                <StandardForm heading="Email" type="email" placeHolder="alice@wonderland.com" :val="email" :parentMethod="changeEmail"/>
+                <StandardForm heading="City" type="email" placeHolder="Boston" :val="city" :parentMethod="changeCity"/>
+                <StandardForm heading="Career Interest" type="email" placeHolder="Psychology" :val="career" :parentMethod="changeCareer"/>
+            </b-card-text>
+            <br><br>
+            <div class="btn-group-lg">
+                <button class="btn btn-primary save">Save</button>
+                <button class="btn btn-primary cancel">Cancel</button>
+            </div>
+            <br>
+        </b-card>
+    </b-container>
 </template>
 
 <script>

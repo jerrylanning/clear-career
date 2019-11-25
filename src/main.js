@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
-
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import BootstrapVue from 'bootstrap-vue'
+import VueRouter from 'vue-router'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import routes from './routes';
 
 Vue.config.productionTip = false;
-import VueRouter from 'vue-router'
+Vue.use(BootstrapVue)
 
 const router = new VueRouter({mode: 'history', routes});
 
