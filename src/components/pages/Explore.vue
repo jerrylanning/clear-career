@@ -1,6 +1,9 @@
 <template>
     <div class="explore">
-        <h1>Explore</h1>
+        <div class="heading-block">
+            <h1 class="explore-heading">Explore</h1>
+            <div class="search-mentors"><router-link to="/login">Search Mentors</router-link></div>
+        </div>
         <div class="search-explore-box outlineBox">
             <div class="form-inline">
                 <input class="form-control search-explore-bar" placeholder="Search Keyword"/>
@@ -119,10 +122,19 @@
     .explore {
         text-align: center;
     }
+    .heading-block {
+        display: inline-grid;
+        width: 100%;
+        text-align: center;
+    }
+    .explore-heading {
+    }
+    .search-mentors {
+        right: 0;
+    }
     .search-explore-box {
         width: 80%;
         margin-left: 10%;
-        position: absolute;
     }
 
     .search-explore-bar {
@@ -202,7 +214,6 @@
         margin-left: 2%;
     }
     .explore-career-container {
-        margin-top: 20%;
         width: 80%;
         margin-left: 10%;
         margin-bottom: 5%;
