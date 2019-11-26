@@ -12,7 +12,10 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import routes from './routes';
 
 Vue.config.productionTip = false;
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
+
+import VueGraph from 'vue-graph'
+Vue.use(VueGraph)
 
 const router = new VueRouter({mode: 'history', routes});
 
