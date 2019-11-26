@@ -90,6 +90,16 @@
                     <CareerCard career="Back End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
                     <CareerCard career="Full Stack" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
                 </div>
+                <b-pagination
+                        v-model="currentPage"
+                        :total-rows="rows"
+                        :per-page="perPage"
+                        first-text="First"
+                        prev-text="Prev"
+                        next-text="Next"
+                        last-text="Last"
+                        align="center"
+                ></b-pagination>
             </b-card>
         </div>
     </b-container>
@@ -101,6 +111,13 @@
     export default {
         name: "Explore",
         components: {CareerCard},
+        data() {
+            return {
+                rows: "100",
+                perPage: "10",
+                currentPage: 1
+            }
+        }
     }
 </script>
 

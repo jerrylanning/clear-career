@@ -56,8 +56,17 @@
                     <MentorCard name="Dr. Magneto" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
                     <MentorCard name="Dr. Doolittle" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
                     <MentorCard name="Dr. Psych" description="La De Dah" location="MA" yearsOfExperience="5" workplace="NU"/>
-
                 </div>
+                <b-pagination
+                        v-model="currentPage"
+                        :total-rows="rows"
+                        :per-page="perPage"
+                        first-text="First"
+                        prev-text="Prev"
+                        next-text="Next"
+                        last-text="Last"
+                        align="center"
+                ></b-pagination>
             </b-card>
         </div>
     </b-container>
@@ -67,7 +76,14 @@
     import MentorCard from "../assets/MentorCard";
     export default {
         name: "SearchMentors",
-        components: {MentorCard}
+        components: {MentorCard},
+        data() {
+            return {
+                perPage: 10,
+                rows: 100,
+                currentPage: 1
+            }
+        }
     }
 </script>
 
@@ -120,8 +136,8 @@
     }
 
     .mentor-card-container {
-        margin-left: 10%;
-        width: 80%;
+        margin-left: 15%;
+        width: 70%;
         text-align: center;
         margin-bottom: 3%;
     }
