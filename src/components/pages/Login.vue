@@ -1,8 +1,8 @@
 <template>
     <div class="login-container">
-        <h1 class="heading">Login</h1>
+        <h1 class="heading"> Login</h1>
         <div>
-            <StandardForm class="username"
+            <StandardForm
                     heading="Username"
                     type="email"
                     placeHolder="username"
@@ -52,15 +52,11 @@
 <style scoped>
     .login-container {
         width: 100%;
-        margin-top: 2%;
     }
 
     .heading {
-        margin-bottom: 3%;
-    }
-
-    .username {
-        margin-bottom: .25%;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 
     #login-button {
