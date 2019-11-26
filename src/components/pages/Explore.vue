@@ -96,24 +96,13 @@
 </template>
 
 <script>
-    import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-    import { faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons'
-    import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
     import CareerCard from "../assets/CareerCard";
 
     export default {
         name: "Explore",
         components: {CareerCard},
         computed: {
-            rightArrow () {
-                return faArrowAltCircleRight
-            },
-            downArrow() {
-                return faArrowAltCircleDown
-            },
-            upArrow() {
-                return faArrowAltCircleUp
-            }
+            
          }
     }
 </script>
