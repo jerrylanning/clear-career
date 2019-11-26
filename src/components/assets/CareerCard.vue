@@ -17,7 +17,6 @@
                 {{experience}}
             </div>
         </div>
-
     </div>
 </template>
 
@@ -38,9 +37,9 @@
 <style scoped>
     .career-container {
         margin-top: 2%;
-        width: 40%;
+        width: 42%;
         display: inline-block;
-        margin-right: 5%;
+        margin-left: 8%;
     }
 
     .career {
