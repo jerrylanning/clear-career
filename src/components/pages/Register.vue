@@ -23,6 +23,7 @@
 
 <script>
     import StandardForm from "../assets/StandardForm";
+    import { mapActions } from 'vuex'
     export default {
         name: "Register",
         components: {StandardForm},
@@ -34,10 +35,14 @@
                     firstName: "",
                     lastName: "",
                     email: "",
+                    type: ""
                 }
             }
         },
         methods: {
+            ...mapActions([
+                'addUser'
+            ]),
             changeUsername(event) {
                 this.user.username = event.target.value;
             },
@@ -59,6 +64,7 @@
                 console.log("Username: ", this.user.username!="");
                 console.log("Email: ", this.user.email);
                 if(this.user.username!=null && this.user.username!="" && this.user.username!= undefined){
+                    this.addUser(this.user)
                     this.$router.push({ path: '/home/'+this.user.username})
                 }
             }
