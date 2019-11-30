@@ -40,9 +40,18 @@
     import ToDoGraph from "../assets/toDoGraph";
     import ArticleCard from "../assets/ArticleCard";
     import TutorialCard from "../assets/TutorialCard";
+    import {mapGetters} from "vuex";
     export default {
         name: "MyPaths",
         components: {TutorialCard, ArticleCard, ToDoGraph, ToDoList},
+        computed:{
+            ...mapGetters([
+                'getAllCareers'
+            ])
+        },
+        methods: {
+
+        },
         data(){
             return {
                 false: false,

@@ -85,10 +85,8 @@
                     </div>
                 </div>
                 <div class="explore-career-container">
-                    <CareerCard career="Psychology" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
-                    <CareerCard career="Front End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
-                    <CareerCard career="Back End" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
-                    <CareerCard career="Full Stack" description="Lad de dah" salary="500,000" education="500,000" experience="2-4 years"/>
+                    <CareerCard v-for="career in careers" :key="career.career" :career="career.career"
+                                :description="career.description" :salary="career.salary" :education="career.education" :experience="career.experience"/>
                 </div>
                 <b-pagination
                         v-model="currentPage"
@@ -107,6 +105,7 @@
 
 <script>
     import CareerCard from "../assets/CareerCard";
+    import {mapGetters} from "vuex";
 
     export default {
         name: "Explore",
@@ -115,9 +114,20 @@
             return {
                 rows: "100",
                 perPage: "10",
-                currentPage: 1
+                currentPage: 1,
+                careers: []
             }
+        },
+        computed:{
+            ...mapGetters([
+                'getAllCareers'
+            ])
+        },
+        mounted(){
+            this.careers = this.getAllCareers("300000")
+            console.log(this.careers)
         }
+
     }
 </script>
 

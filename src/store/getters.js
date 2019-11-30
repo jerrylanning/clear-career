@@ -18,6 +18,10 @@ export default {
                 return user.username === username
             })
         }
-     }
+     },
+    getAllCareers: (state) => {
+        return () => {
+            return state.careers;
+        }
+    }
   }
-  
