@@ -12,11 +12,22 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import routes from './routes';
 import store from './store'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faSort, faSortDown, faSortUp} from '@fortawesome/free-solid-svg-icons'
+
+
+//Adding Font Awesome icons
+library.add(faSort, faSortDown, faSortUp);
+library.add(faUserSecret);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 
 import VueGraph from 'vue-graph'
-Vue.use(VueGraph)
+Vue.use(VueGraph);
 
 const router = new VueRouter({mode: 'history', routes});
 
