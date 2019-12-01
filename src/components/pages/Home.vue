@@ -7,18 +7,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
     export default {
         name: "Home",
         data(){
             return {
-                 user: {
-                    username: "",
-                    password: "",
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                }
+                 user: {}
             }
+        },
+        computed:{
+            ...mapGetters([
+            'getUserWithUsername'
+            ])
+        },
+        mounted(){
+            this.user = this.getUserWithUsername(this.$route.params.name)[0]
+            console.log(this.user)
         }
         
     }

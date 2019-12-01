@@ -1,79 +1,61 @@
 <template>
-    <div>
-        <b-container>
-            <h1>My Mentors</h1>
-            <div class="search-mentors"><router-link to="/search-mentors">Search Mentors</router-link></div>
-            <div class="mentor">
-                <h3>Dr. Mind Reader</h3>
-                <hr>
-                <div class="lesson-container">
-                    <div class="thumb"></div>
-                    <div class="description">
-                    </div>
-                </div>
-                <div class="lesson-container">
-                    <div class="thumb"></div>
-                    <div class="description">
-                    </div>
-                </div>
-                <div class="lesson-container">
-                    <div class="thumb"></div>
-                    <div class="description">
-                    </div>
-                </div>
-                <div class="lesson-container">
-                    <div class="thumb"></div>
-                    <div class="description">
-                    </div>
-                </div>
+    <b-container>
+        <h4>Top and Bottom</h4>
+        <b-card-group deck class="mentor-card-container">
+            <div class="mentor-card">
+                <b-card class="mt-3" >
+                    <b-card-text>
+                        <h1>My Mentor</h1>
+                        <div class="mentor-populate">
+                            <div class="mentor-container">
+                                <div class="mentor-articles">
+                                    <ArticleCard/>
+                                    <ArticleCard/>
 
+                                </div>
+                                <div class="mentor-tutorials">
+                                    <TutorialCard/>
+                                    <TutorialCard/>
+                                    <TutorialCard/>
+
+                                </div>
+                            </div>
+                        </div>
+                    </b-card-text>
+                </b-card>
             </div>
-        </b-container>
-    </div>
+        </b-card-group>
+    </b-container>
 </template>
 
 <script>
+    import ArticleCard from "../assets/ArticleCard";
+    import TutorialCard from "../assets/TutorialCard";
     export default {
-        name: "MyMentors"
+        name: "MyMentors",
+        components: {TutorialCard, ArticleCard}
     }
 </script>
 
 <style scoped>
-
-    .thumb{
-        position: relative;
-        outline: 1px solid black;
-        margin: 25px;
-        height: 150px;
-        width: 20%;
-        display: inline-block;
-        background-color: aqua;
+    .mentor-container {
+        display: inline-flex;
+    }
+    .mentor-articles {
+        height: 50%;
     }
 
-    .description{
-        width: 60%;
-        height: 150px;
-        margin: 25px;
-        margin-left: 0px;
-        outline: 1px solid chartreuse;
-        background-color: gray;
-        display: inline-block;
-    }
-
-    .mentor{
-        outline: 1px solid gray;
-        margin-top: 25px;
-    }
-
-    h3{
-        padding-top: 20px;
-    }
-
-    .lesson-container{
-        height: 200px;
+    .mentor-tutorials {
         width: 50%;
-        background-color: red;
-        display: inline-block;
+    }
+    .mentor-card-container {
+        text-align: center;
+    }
+
+    .mentor-card {
+        width: 80%;
+        margin-left: 10%;
+        height: 50%;
     }
 
 </style>
