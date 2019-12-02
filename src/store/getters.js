@@ -18,6 +18,9 @@ export default {
                 return user.username === username
             })
         }
-     }
+     },
+    loggedInUser(state){
+      return state.appData.currentUser
+    }
   }
   
