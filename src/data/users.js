@@ -5,7 +5,9 @@ export default [
         firstName: "John",
         lastName: "Doe",
         email: "jdoe@hci.com",
-        type: "mentee"
+        type: "mentee",
+        city: "",
+        careerInterest: ""
     },
     {
         username: "mindRead",

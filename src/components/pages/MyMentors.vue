@@ -44,34 +44,17 @@
                 </b-card>
             </div>
         </b-card-group>
-        <CareerNameCard/>
-        <CareerDescriptionCard/>
-        <CareerInsightsCard/>
-        <SalaryPerYearChart/>
-        <JobsPerYearChart/>
-        <CareerRequirementsCard/>
-        <TopMentorsCard/>
     </b-container>
 </template>
 
 <script>
     import ArticleCard from "../assets/ArticleCard";
     import TutorialCard from "../assets/TutorialCard";
-    import CareerNameCard from "../assets/CareerNameCard";
-    import CareerDescriptionCard from "../assets/CareerDescriptionCard";
-    import CareerInsightsCard from "../assets/CareerInsightsCard";
-    import JobsPerYearChart from "../assets/JobsPerYearChart";
-    import SalaryPerYearChart from "../assets/SalaryPerYearChart";
-    import CareerRequirementsCard from "../assets/CareerRequirementsCard";
-    import TopMentorsCard from "../assets/TopMentorsCard";
+
     export default {
         name: "MyMentors",
         components: {
-            TopMentorsCard,
-            CareerRequirementsCard,
-            SalaryPerYearChart,
-            JobsPerYearChart,
-            CareerInsightsCard, CareerDescriptionCard, CareerNameCard, TutorialCard, ArticleCard}
+            TutorialCard, ArticleCard}
     }
 </script>
 

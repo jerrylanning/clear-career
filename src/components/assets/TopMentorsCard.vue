@@ -1,8 +1,7 @@
 <template>
     <b-card>
         <h2>Top Mentors</h2>
-        <div class="mentors" v-for="mentor in this.mentors" :key="mentor"><router-link :to="{ params: { name: mentor.username }}" class="router-link">{{mentor.title}}</router-link></div>
-
+        <div class="mentors" v-for="mentor in this.mentors" :key="mentor"><router-link :to="`/mentor-profile/${mentor.username}`" class="router-link">{{mentor.title}}</router-link></div>
     </b-card>
 </template>
 

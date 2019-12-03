@@ -1,10 +1,12 @@
 <template>
     <b-container>
+        <h1>Career Page</h1>
+        <br>
         <div class="row">
             <div class="col-8">
-                <CareerNameCard/>
+                <CareerNameCard :careerName="career.career" :pic-path="career.pic"/>
                 <CareerDescriptionCard/>
-                <div>
+                <div class="chart-container">
                     <JobsPerYearChart class="chart"/>
                     <SalaryPerYearChart class="chart"/>
                 </div>
@@ -29,12 +31,27 @@
     import CareerInsightsCard from "../assets/CareerInsightsCard";
     import CareerRequirementsCard from "../assets/CareerRequirementsCard";
     import TopMentorsCard from "../assets/TopMentorsCard";
+    import {mapGetters} from "vuex";
     export default {
         name: "CareerPage",
         components: {
             TopMentorsCard,
             CareerRequirementsCard,
-            CareerInsightsCard, SalaryPerYearChart, JobsPerYearChart, CareerDescriptionCard, CareerNameCard}
+            CareerInsightsCard, SalaryPerYearChart, JobsPerYearChart, CareerDescriptionCard, CareerNameCard
+        },
+        data() {
+            return {
+                career: {}
+            }
+        },
+        computed: {
+            ...mapGetters([
+                'getCareerByName'
+            ])
+        },
+        mounted() {
+            this.career = this.getCareerByName(this.$route.params.name);
+        }
     }
 </script>
 
@@ -42,6 +59,10 @@
 
     .chart{
         width: 50%;
+        margin: 10px;
+    }
+
+    .chart-container{
     }
 
 </style>

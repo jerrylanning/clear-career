@@ -23,7 +23,7 @@
             ])
         },
         mounted() {
-            this.career = this.getCareerByName('Software Engineer');
+            this.career = this.getCareerByName(this.$route.params.name);
             console.log(this.career)
         }
     }

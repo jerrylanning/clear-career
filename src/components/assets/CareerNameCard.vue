@@ -1,7 +1,7 @@
 <template>
-    <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-left class="mb-3">
+    <b-card :img-src="picPath" img-alt="Card image" img-left class="mb-3">
         <b-card-text class="text">
-            Psychologist
+            {{careerName}}
         </b-card-text>
         <b-progress :max="50" show-value>
             <b-progress-bar :value="25" variant="success"></b-progress-bar>
@@ -11,7 +11,11 @@
 
 <script>
     export default {
-        name: "CareerNameCard"
+        name: "CareerNameCard",
+        props: {
+            careerName: String,
+            picPath: String
+        }
     }
 </script>
 

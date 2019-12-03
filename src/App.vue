@@ -31,13 +31,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   min-height: 100vh;
-  background-color:#F8F8F8;
 }
 
 #body {
   top: 0;
   position: relative;
-  padding-top: 6%;
+  padding-top: 10%;
 }
 
 .outlineBox {

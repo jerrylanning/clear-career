@@ -10,6 +10,7 @@ export default [
         demand: 50,
         popularity: 20,
         experienceSort: 2,
+        pic: "https://www.kcbi.org/wp-content/uploads/2019/03/homer-simpson.jpg",
         requirements: [{
                 requirement: "Certificate for working with children",
                 votes: 10
