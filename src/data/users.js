@@ -7,7 +7,8 @@ export default [
         email: "jdoe@hci.com",
         type: "mentee",
         city: "",
-        careerInterest: ""
+        careerInterest: "",
+        paths: ["Software Engineer", "Elementary Eduction"]
     },
     {
         username: "mindRead",
@@ -36,7 +37,7 @@ export default [
         location: "NH",
         yearsOfExperience: "5+ Years",
         workplace: "Northeastern",
-        jobTitle: "Professor",
+        jobTitle: "Elementary Eduction",
         education: "Masters/PhD"
     },
     {

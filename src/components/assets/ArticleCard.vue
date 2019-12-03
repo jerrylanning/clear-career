@@ -1,14 +1,13 @@
 <template>
-    <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+    <b-card no-body class="article overflow-hidden" style="max-width: 540px;">
         <b-row no-gutters>
             <b-col md="6">
-                <b-card-img src="https://picsum.photos/400/400/?image=20" class="rounded-0"></b-card-img>
+                <b-card-img :src="img" class="rounded-0"></b-card-img>
             </b-col>
             <b-col md="6">
-                <b-card-body title="Horizontal Card">
+                <b-card-body :title="title">
                     <b-card-text>
-                        This is a wider card with supporting text as a natural lead-in to additional content.
-                        This content is a little bit longer.
+                        {{summary}}
                     </b-card-text>
                 </b-card-body>
             </b-col>
@@ -18,10 +17,19 @@
 
 <script>
     export default {
-        name: "ArticleCard"
+        name: "ArticleCard",
+        props: {
+            title: String,
+            img: String,
+            summary: String,
+            description: String
+        }
     }
 </script>
 
 <style scoped>
+    .article {
+        margin-top: 2%;
+    }
 
 </style>
