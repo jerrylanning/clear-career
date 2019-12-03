@@ -26,14 +26,40 @@
                 <h2>Top-Rated Tasks</h2>
                 <ol>
                     <li>
-                        <div>
-
+                        <div class="task-item">
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbUp" />
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbDown" />
+                            <div>Eat good food</div>
                         </div>
-                        Eat good food</li>
-                    <li>Get good sleep</li>
-                    <li>Drink a lot of water</li>
-                    <li>Go outside</li>
-                    <li>Be social</li>
+                    </li>
+                    <li>
+                        <div class="task-item">
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbUp" />
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbDown" />
+                            <div>Get good sleep</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task-item">
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbUp" />
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbDown" />
+                            <div>Drink a lot of water</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task-item">
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbUp" />
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbDown" />
+                            <div>Go outside</div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task-item">
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbUp" />
+                            <font-awesome-icon  class="fa-item icon" :icon="faEmptyThumbDown" />
+                            <div>Be social</div>
+                        </div>
+                    </li>
                 </ol>
             </div>
             <div id="add-task-column"
@@ -45,8 +71,19 @@
 </template>
 
 <script>
+    import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+    import { faThumbsDown } from '@fortawesome/free-regular-svg-icons';
     export default {
-        name: "Advice"
+        name: "Advice",
+
+        computed:{
+            faEmptyThumbUp(){
+                return faThumbsUp;
+            },
+            faEmptyThumbDown(){
+                return faThumbsDown;
+            }
+        },
     }
 </script>
 
@@ -57,13 +94,25 @@
     }
 
     .heading {
-        margin-top: 2%;
-        margin-bottom: 2%;
+        margin: 2% 0;
+    }
+
+    .task-item{
+        justify-content: flex-start;
+        display: flex;
+        float: left;
+        width: 100%;
+    }
+
+    .icon{
+        flex: 1;
     }
 
     #curate-column {
         width: 20%;
         height: 100%;
+        border-right: ;
+        text-align: center;
     }
     #tasks-column {
         width: 45%;
@@ -72,11 +121,33 @@
         width: 35%;
     }
 
-    #curate-column > button {
-        width: 112px;
-        height: 56px;
-        padding: 8px;
-        margin: 30% 0px;
+    li{
+        float: left;
+        margin: 2px;
+        margin-right: 51%;
     }
+
+    @media screen and (min-width: 1250px) {
+        #curate-column > button {
+            width: 60%;
+            height: 56px;
+            padding: 8px;
+            display: block;
+            text-align: center;
+            margin-left: 20%;
+            margin-top: 10%
+        }
+    }
+    @media screen and (max-width: 1250px) {
+        #curate-column > button {
+            width: 100%;
+            height: 56px;
+            padding: 8px;
+            display: block;
+            text-align: center;
+            margin-top: 10%
+        }
+    }
+
 
 </style>
