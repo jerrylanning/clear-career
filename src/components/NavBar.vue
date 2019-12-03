@@ -23,6 +23,9 @@
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav>
             <b-nav-item>
+              <router-link to="/explore" class="router-link">Explore</router-link>
+            </b-nav-item>
+            <b-nav-item>
               <router-link to="/register" class="router-link">Register</router-link>
             </b-nav-item>
             <b-nav-item>
