@@ -1,36 +1,43 @@
 <template>
     <b-container>
-        <b-card>
-            <h1>My Paths</h1>
+        <b-card v-if="loggedInUser.type === 'mentee'">
+            <h1>{{loggedInUser.username}} Paths</h1>
             <div>
                 <b-tabs content-class="mt-3">
-                    <b-tab title="First" active>
+                    <b-tab v-for="career in careers" :key="career.career" :title="career.career" active>
                         <div class="to-do-container">
                             <div class="to-do-list-container">
-                                <to-do-list :toDo="uncheckedToDo" checked="false"/>
-                                <to-do-list :toDo="checkedToDo" checked="true"/>
+                                <to-do-list :toDo="uncheckedToDo" :checked="false"/>
+                                <to-do-list :toDo="checkedToDo" :checked="true"/>
                             </div>
                             <div class="graph-container">
                                 <to-do-graph/>
                             </div>
                         </div>
                         <div class="articles-and-tutorials">
-                            <div class="articles">
-                                <ArticleCard/>
+                            <div class="articles" >
+                                <ArticleCard v-for="article in career.articles" :key="article.title"
+                                             :title="article.title"
+                                             :img="article.img" :summary="article.summary"/>
                             </div>
                             <div class="tutorials">
-                                <TutorialCard/>
+                                <TutorialCard v-for="video in career.videos" :key="video.embedLink"
+                                    :author="video.author"
+                                    :embedLink="video.embedLink"
+                                    :title="video.title"/>
                             </div>
                         </div>
                     </b-tab>
-                    <b-tab title="Second">
-                        <p>I'm second</p>
-                    </b-tab>
-                    <b-tab title="Third">
-                        <p>I'm third</p>
-                    </b-tab>
                 </b-tabs>
             </div>
+        </b-card>
+        <b-card v-else-if="loggedInUser.type === 'mentor'">
+            Please <router-link to="/login" class="router-link">Login</router-link> or
+            <router-link to="/register" class="router-link">Register</router-link> as a mentee to create paths.
+        </b-card>
+        <b-card v-else>
+            Please <router-link to="/login" class="router-link">Login</router-link> or
+            <router-link to="/register" class="router-link">Register</router-link> to setup paths.
         </b-card>
     </b-container>
 </template>
@@ -46,23 +53,28 @@
         components: {TutorialCard, ArticleCard, ToDoGraph, ToDoList},
         computed:{
             ...mapGetters([
-                'getAllCareers'
+                'getAllCareers', 'loggedInUser', 'getCareerByName'
             ])
         },
         methods: {
 
         },
+        mounted(){
+            console.log("HELLO");
+            this.user = this.loggedInUser;
+            console.log(this.loggedInUser);
+            for (let i = 0; i < this.loggedInUser.paths.length; i++) {
+                console.log("HELLLLLLLLLLO");
+                this.careers.push(this.getCareerByName(this.user.paths[i]))
+            }
+        },
         data(){
             return {
                 false: false,
                 true: true,
-                user: {
-                    username: "",
-                    password: "",
-                    firstName: "",
-                    lastName: "",
-                    email: "",
-                },
+                user: {},
+                articles: [],
+                careers: [],
                 uncheckedToDo: [
                     { text: 'uncheck', value: 'uncheck'},
                     { text: 'banana', value: 'banana'}

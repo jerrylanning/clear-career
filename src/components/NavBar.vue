@@ -26,6 +26,9 @@
             <b-nav-item>
               <router-link to="/explore" class="router-link">Explore</router-link>
             </b-nav-item>
+            <b-nav-item v-if="loggedInUser.type === 'mentee'">
+              <router-link to="/my-path" class="router-link">My Paths</router-link>
+            </b-nav-item >
             <b-nav-item v-if="!loggedInUser.username">
               <router-link to="/register" class="router-link">Register</router-link>
             </b-nav-item>

@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="slider-container">
-                        <div>Salary (In Thousands)</div>
+                        <div>Salary</div>
                         <label for="customRange1" class="min-label">0</label>
                         <input @change="rangeFilter" type="range" class="custom-range salary-slider" id="customRange1" :min="0" :max="200000" :value="range"/>
                         <label for="customRange1" class="max-label">200,000</label>

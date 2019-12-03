@@ -3,13 +3,13 @@
         <div class="card">
             <div class="card-image">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/fZIiE92-NkU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" :src="embedLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
 
             </div><!-- card image -->
 
             <div class="card-content">
-                <span class="card-title">Bill Burr and Segura</span>
+                <span class="card-title">{{title}}</span>
 
             </div><!-- card content -->
         </div>
@@ -18,7 +18,12 @@
 
 <script>
     export default {
-        name: "TutorialCard"
+        name: "TutorialCard",
+        props: {
+            title: String,
+            embedLink: String,
+            author: String
+        }
     }
 </script>
 
@@ -32,6 +37,7 @@
     .card{
         width: 100%;
         position: relative;
+        margin-top: 2%;
     }
 
     .card .card-content {
