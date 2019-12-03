@@ -3,6 +3,7 @@
     <div>
         <h1>Home</h1>
         <h4> Hello, {{user.firstName}} </h4>
+        <router-link to="/mentor-profile/mindRead" class="router-link">Mentor profile</router-link>
     </div>
 </template>
 
