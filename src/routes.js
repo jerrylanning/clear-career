@@ -3,6 +3,7 @@ import Register from './components/pages/Register.vue';
 import Login from './components/pages/Login.vue';
 import Profile from './components/pages/Profile';
 import Landing from './components/Landing.vue';
+import MentorProfile from './components/pages/MentorProfile.vue';
 import Explore from './components/pages/Explore';
 import SearchMentors from "./components/pages/SearchMentors";
 import MyPaths from "./components/pages/MyPaths";
@@ -14,8 +15,9 @@ const routes = [
     { path: '/my-path/:name', component: MyPaths, props: true},
     { path: '/register', component: Register },
     { path: '/login', component: Login },
-    { path: '/profile', component: Profile},
+    { path: '/profile/:name', component: Profile},
     { path: '/explore', component: Explore},
+    { path: '/mentor-profile', component: MentorProfile},
     { path: '/search-mentors', component: SearchMentors}
 ];
 

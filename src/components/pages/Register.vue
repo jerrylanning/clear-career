@@ -2,7 +2,7 @@
 <b-container>
   <div>
     <b-card>
-        <h1 class="heading">Sign Up</h1>
+        <h1>Sign Up</h1>
         <br>
         <b-card-text>
             <StandardForm heading="First Name" type="text" placeHolder="Jane" :val="user.firstName" :parentMethod="changeFirst"/>
@@ -10,8 +10,19 @@
             <StandardForm heading="Email" type="email" placeHolder="jdoe@wonderland.com" :val="user.email" :parentMethod="changeEmail"/>
             <StandardForm heading="Password" type="password" placeHolder="*******" :val="user.password" :parentMethod="changePass"/>
             <StandardForm heading="Username" type="text" placeHolder="jDoe" :val="user.username" :parentMethod="changeUsername"/>
+            <div style="margin-top:1%;">
+                  <b-form-radio-group
+                        id="btn-radios-2"
+                        v-model="user.type"
+                        :options="options"
+                        buttons
+                        button-variant="outline-primary"
+                        name="radio-btn-outline"
+                        
+                    ></b-form-radio-group>
+            </div>
         </b-card-text>
-        <br><br>
+        <br>
         <div class="btn-group-lg">
             <button class="btn btn-primary save" @click="createAccount()">Create Account</button>
         </div>
@@ -35,13 +46,18 @@
                     firstName: "",
                     lastName: "",
                     email: "",
-                    type: ""
-                }
+                    type: "mentee"
+                },
+                options: [
+                    { text: 'Mentor', value: 'mentor'},
+                    { text: 'Mentee', value: 'mentee'},
+                ]
             }
         },
         methods: {
             ...mapActions([
-                'addUser'
+                'addUser',
+                'setLogInUser'
             ]),
             changeUsername(event) {
                 this.user.username = event.target.value;
@@ -65,6 +81,7 @@
                 console.log("Email: ", this.user.email);
                 if(this.user.username!=null && this.user.username!="" && this.user.username!= undefined){
                     this.addUser(this.user)
+                    this.setLogInUser(this.user)
                     this.$router.push({ path: '/home/'+this.user.username})
                 }
             }
@@ -86,5 +103,9 @@
     }
     .btn{
         width: 40%;
+    }
+    .label {
+        padding-top:1%;
+        color:dodgerblue;
     }
 </style>

@@ -1,13 +1,12 @@
-
 <template>
     <div>
-        <h1>Hi! ClearCareer is here to help you.</h1>
+        <h1>Hi! Mentor</h1>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Landing"
+        name: "MentorProfile"
     }
 </script>
 

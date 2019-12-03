@@ -25,6 +25,9 @@ export default {
             })
         }
      },
+    loggedInUser(state){
+      return state.appData.currentUser
+    },
     getAllCareers: (state) => {
         return () => {
             return state.careers;
