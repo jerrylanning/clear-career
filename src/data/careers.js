@@ -9,7 +9,16 @@ export default [
         proximity: 200,
         demand: 50,
         popularity: 20,
-        experienceSort: 2
+        experienceSort: 2,
+        requirements: [{
+                requirement: "Certificate for working with children",
+                votes: 10
+            },
+            {
+                requirement: "Certificate of Psychology",
+                votes: 7
+            }
+        ]
     },
     {
         career: "Software Engineer",
@@ -21,7 +30,19 @@ export default [
         proximity: 100,
         demand: 90,
         popularity: 60,
-        experienceSort: 1
+        experienceSort: 1,
+        requirements: [{
+                requirement: "AWS Certification",
+                votes: 10
+            },
+            {
+                requirement: "Java Certificate",
+                votes: 3
+            },{
+                requirement: "MongoDB Certificate",
+                votes: 1
+            }
+        ]
     },
     {
         career: "Elementary Eduction",
@@ -33,7 +54,16 @@ export default [
         proximity: 2,
         demand: 10,
         popularity: 80,
-        experienceSort: 3
+        experienceSort: 3,
+        requirements: [{
+                requirement: "Teaching certificate",
+                votes: 10
+            },
+            {
+                requirement: "CPR Certificate",
+                votes: 5
+            }
+        ]
     },
     {
         career: "Spine Surgeon",
@@ -45,6 +75,18 @@ export default [
         proximity: 300,
         demand: 100,
         popularity: 2,
-        experienceSort: 5
+        experienceSort: 5,
+        requirements: [{
+                requirement: "Residency Experience",
+                votes: 10
+            },
+            {
+                requirement: "Fellowship Experience",
+                votes: 8
+            },{
+                requirement: "HIPPA Compliance",
+                votes: 5
+            }
+        ]
     },
 ]

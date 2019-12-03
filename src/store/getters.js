@@ -29,5 +29,22 @@ export default {
         return () => {
             return state.careers;
         }
+    },
+
+    getCareerByName: (state) => {
+        return (careerName) => {
+            return state.careers.filter((career) => {
+                return career.career === careerName
+            })[0]
+        }
+
+    },
+
+    getMentorByCareer: (state) => {
+        return (careerName) => {
+            return state.users.filter((user) => {
+                return  user.type === "mentor" && user.jobTitle === careerName;
+            })
+        }
     }
   }

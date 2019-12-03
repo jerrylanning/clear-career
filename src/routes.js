@@ -7,6 +7,7 @@ import Explore from './components/pages/Explore';
 import SearchMentors from "./components/pages/SearchMentors";
 import MyMentors from "./components/pages/MyMentors";
 import MyPaths from "./components/pages/MyPaths";
+import CareerPage from "./components/pages/CareerPage";
 
 // This file is where we wil add routes, if you ever need to add a route first you must add it here.
 const routes = [
@@ -18,7 +19,8 @@ const routes = [
     { path: '/profile', component: Profile},
     { path: '/explore', component: Explore},
     { path: '/search-mentors', component: SearchMentors},
-    { path: '/my-mentors', component: MyMentors}
+    { path: '/my-mentors', component: MyMentors},
+    { path: '/career-page', component: CareerPage}
 ];
 
 export default routes;
