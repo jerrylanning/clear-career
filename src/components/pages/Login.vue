@@ -1,6 +1,6 @@
 <template>
     <div class="login-container">
-        <h1 class="heading"> Login</h1>
+        <h1 class="heading"> Login </h1>
         <div>
             <StandardForm
                     heading="Username"
