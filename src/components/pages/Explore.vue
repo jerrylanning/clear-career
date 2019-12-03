@@ -92,8 +92,8 @@
                     <div class="slider-container">
                         <div>Salary (In Thousands)</div>
                         <label for="customRange1" class="min-label">0</label>
-                        <input @change="rangeFilter" type="range" class="custom-range salary-slider" id="customRange1" min="0" max="100"/>
-                        <label for="customRange1" class="max-label">100</label>
+                        <input @change="rangeFilter" type="range" class="custom-range salary-slider" id="customRange1" :min="0" :max="200000" :value="range"/>
+                        <label for="customRange1" class="max-label">200,000</label>
                     </div>
                     <div class="clearFilters" @click="clearFilters">
                         Clear Filters
@@ -130,6 +130,7 @@
                 rows: "100",
                 perPage: "10",
                 currentPage: 1,
+                range: 60000,
                 currentCareers: [],
                 allCareers: [],
                 demandSort: "UN",
@@ -140,10 +141,9 @@
         },
         methods: {
             rangeFilter(event) {
-                console.log(event.target.value)
+                this.range = event.target.value;
                 this.currentCareers = this.allCareers.filter((career) => {
-                    let careerSalary = parseInt(career.salary, 10) / 1000;
-                    console.log(careerSalary)
+                    let careerSalary = parseInt(career.salary, 10);
                     return careerSalary <= event.target.value;
                 })
             },
