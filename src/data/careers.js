@@ -53,7 +53,24 @@ export default [
                 requirement: "MongoDB Certificate",
                 votes: 1
             }
-        ]
+        ],
+        articles: [{
+            author: "rachelM",
+            title: "Front End Framework",
+            img: "https://cdn-media-1.freecodecamp.org/images/1*L3Y8gEdaVoQQo9axLR_9mg.jpeg",
+            summary: "AI generated article",
+            text: "front end engineering on that part of the instrument panel, and so long as the dimmed automatic parts and battery are installed in the correct order, it will probably work.\n" +
+                "\n" +
+                "\n" +
+                "However, the contact of light and driver are in conflict with the basic characteristics of the end plate, and is not a happy experience."
+        }],
+        videos: [
+            {
+                author: "rachelM",
+                title: "Day in the life",
+                embedLink: "https://www.youtube.com/embed/CsmiQICz7NU"
+            }
+            ]
     },
     {
         career: "Elementary Eduction",
@@ -88,7 +105,7 @@ export default [
             {
                 author: "mikeShah",
                 title: "Elementary School Day",
-                img: "https://www.verywellmind.com/thmb/MUYIpdNot63jYYib0-H-YM6bF8s=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/little-girl-spraying-water-hose-692728416-5b365bf946e0fb0054ce5294.jpg",
+                img: "https://cdn.careeronestop.org/OccVids/OccupationVideos/25-2021.00.jpg",
                 summary: "Teaching 1st graders in smaller schools and kindergartens to count objects with hands instead of their eyes",
                 text: "teaching 1st graders in smaller schools and kindergartens to count objects with hands instead of their eyes.\n" +
                     "\n" +

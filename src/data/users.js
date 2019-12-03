@@ -44,15 +44,15 @@ export default [
         username: "rachelM",
         password: "password",
         firstName: "Rachel",
-        title: "Rachel Malden",
-        lastName: "Reader",
+        title: "Front End Engineer",
+        lastName: "Malden",
         email: "rachelM@hci.com",
         type: "mentor",
-        bio: "I write poetry",
+        bio: "I am a software engineer at Amazon",
         location: "NY",
         yearsOfExperience: "1-3 Years",
-        workplace: "Home",
-        jobTitle: "Poet",
+        workplace: "Amazon",
+        jobTitle: "Software Engineer",
         education: "High School"
     }
 ]
