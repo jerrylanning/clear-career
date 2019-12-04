@@ -15,7 +15,7 @@ import CareerPage from "./components/pages/CareerPage";
 const routes = [
     { path: '/' , component: Landing},
     { path: '/home/:name', component: Home , props: true },
-    { path: '/my-path', component: MyPaths, props: true},
+    { path: '/my-path', component: MyPaths},
     { path: '/register', component: Register },
     { path: '/login', component: Login },
     { path: '/profile/:name', component: Profile},
@@ -23,11 +23,8 @@ const routes = [
     { path: '/mentor-profile', component: MentorProfile},
     { path: '/search-mentors', component: SearchMentors},
     { path: '/advice', component: Advice},
-    { path: '/search-mentors', component: SearchMentors},
     { path: '/my-mentors', component: MyMentors},
     { path: '/career-page/:name', component: CareerPage},
-    { path: '/mentor-profile/:name', component: MentorProfile},
-    { path: '/search-mentors', component: SearchMentors}
 ];
 
 export default routes;
