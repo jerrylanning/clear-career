@@ -40,7 +40,7 @@
 import { mapGetters } from 'vuex'
 import MyMentorsCard from "../assets/MyMentorsCard";
 import MyPathsCard from "../assets/MyPathsCard";
-import 'easy-circular-progress'
+
     export default {
         name: "Home",
         components: {MyPathsCard, MyMentorsCard},

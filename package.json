@@ -14,7 +14,6 @@
     "bootstrap": "^4.3.1",
     "bootstrap-slider": "^10.6.2",
     "core-js": "^3.3.2",
-    "easy-circular-progress": "^1.0.4",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "vue-graph": "^0.8.7",
