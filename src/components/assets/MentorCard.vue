@@ -9,7 +9,6 @@
                     <div class="credential">Years of Experience: {{yearsOfExperience}}</div>
                     <div class="credential">Workplace: {{workplace}}</div>
                 </div>
-                <button class="show-profile-button btn btn-sm btn-primary">Show Profile</button>
             </div>
         </div>
     </div>
