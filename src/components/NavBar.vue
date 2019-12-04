@@ -26,6 +26,9 @@
             <b-nav-item>
               <router-link to="/explore" class="router-link">Explore</router-link>
             </b-nav-item>
+            <b-nav-item>
+              <router-link to="/advice" class="router-link">Advice</router-link>
+            </b-nav-item>
             <b-nav-item v-if="loggedInUser.type === 'mentee'">
               <router-link to="/my-path" class="router-link">My Paths</router-link>
             </b-nav-item >
@@ -43,7 +46,7 @@
                 <b-dropdown-item @click="showProfilePage">Profile</b-dropdown-item>
                 <b-dropdown-item @click="logOut">Sign Out</b-dropdown-item>
               </b-nav-item-dropdown>
-              
+
           </b-navbar-nav>
         </b-navbar-nav>
       </b-collapse>
