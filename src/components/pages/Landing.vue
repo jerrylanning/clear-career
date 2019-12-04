@@ -31,7 +31,7 @@
     h1{
         position: absolute;
         color: dodgerblue;
-        top: 25%;
+        top: 20%;
         left: 50%;
         transform: translate(-50%, -50%);
     }
