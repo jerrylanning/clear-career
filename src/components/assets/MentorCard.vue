@@ -1,7 +1,7 @@
 <template>
     <div class="mentor-card outlineBox">
         <div class="text-container">
-            <div class="name-box">{{name}}</div>
+            <div class="name-box"><router-link :to="`/mentor-profile/${routeToMentor}`" class="router-link">{{name}}</router-link></div>
             <div class="description-box">{{description}}</div>
             <div class="bottom-box">
                 <div class="credential-box">
@@ -20,6 +20,7 @@
         name: "MentorCard",
         props: {
             name: String,
+            routeToMentor: String,
             description: String,
             location: String,
             yearsOfExperience: String,

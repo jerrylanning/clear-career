@@ -44,5 +44,73 @@ export default [
             }
         ]
 
+    },
+    {
+        username: 'mikeShah',
+        profilePicture: 'https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1',
+        bio: "I teach kids at Northeastern how to read and write. I enjoy my job and the day to day life is amazing.",
+        title: 'Mike Shah',
+        career: 'Elementary Eduction',
+        yoe: '4',
+        education: [
+            {
+                school: 'UNC',
+                degree: 'Masters in Elementary Educations'
+            }
+        ],
+        workEx: [{
+            company: 'Northeastern',
+            position: 'Elementary SChool teacher.'
+        }],
+        articles: [
+            {
+                title: 'Elementary Education',
+                image: 'https://nationalblueribbonschools.ed.gov/awardwinners/winning/asset/2018/school_photos/18wa107pu_evergreen_elementary_school_original.jpg',
+                description: 'Counting Objects',
+                link: "https://www.iknowit.com/lessons/k-counting-objects-to-5.html"
+            }
+        ],
+        videos: [
+            {
+                title: "Day in the life",
+                link: "https://www.youtube.com/embed/FitCK2-SEiY"
+            }
+        ]
+
+    },
+    {
+        username: 'rachelM',
+        profilePicture: 'https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1',
+        bio: "I've got a passion for Front End Engineering, something I learned how to do back in High School. I created" +
+            "my own framework and web app (using that framework) at the age of 15, then Amazon bought our company to the tune of 1.5 million dollars." +
+            "I now work at Amazon as a Front End Engineer.",
+        title: 'Rachel',
+        career: 'Front End Engineer',
+        yoe: '2',
+        education: [
+            {
+                school: 'High School',
+                degree: 'N/A'
+            }
+        ],
+        workEx: [{
+            company: 'Amazon',
+            position: 'Software Engineer'
+        }],
+        articles: [
+            {
+                title: 'Front End Frameworks',
+                image: 'https://cdn-media-1.freecodecamp.org/images/1*L3Y8gEdaVoQQo9axLR_9mg.jpeg',
+                description: 'New Frameworks in the world of the front end',
+                link: "https://existek.com/blog/top-front-end-frameworks-2019/"
+            }
+        ],
+        videos: [
+            {
+                title: 'Day in the life',
+                link: "https://www.youtube.com/embed/CsmiQICz7NU"
+            }
+        ]
+
     }
 ]

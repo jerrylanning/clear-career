@@ -56,7 +56,8 @@
                 </div>
                 <div class="mentor-card-container">
                     <MentorCard  v-for="mentor in currentMentors" :key="mentor.title" :name="mentor.title" :description="mentor.bio"
-                        :location="mentor.location" :yearsOfExperience="mentor.yearsOfExperience" :workplace="mentor.workplace"/>
+                        :location="mentor.location" :yearsOfExperience="mentor.yearsOfExperience" :workplace="mentor.workplace"
+                        :routeToMentor="mentor.username"/>
                 </div>
                 <!--<b-pagination-->
                         <!--v-model="currentPage"-->
