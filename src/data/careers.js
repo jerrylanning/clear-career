@@ -73,7 +73,7 @@ export default [
             ]
     },
     {
-        career: "Elementary Eduction",
+        career: "Elementary Education",
         description: "We always need teachers",
         salary: "50000",
         education: "Bachelors",

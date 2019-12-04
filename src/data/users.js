@@ -9,7 +9,15 @@ export default [
         city: "",
         careerInterest: "",
         mentors:[],
-        paths: ["Software Engineer", "Elementary Eduction"]
+        paths: [
+            {
+                career: "Software Engineer",
+                finishedRequirements:["AWS Certification"]
+            },
+            {
+                career: "Elementary Education",
+                finishedRequirements: []
+            }]
     },
     {
         username: "mindRead",
