@@ -5,16 +5,16 @@
         <div class="row">
             <div class="col-8">
                 <CareerNameCard :careerName="career.career" :pic-path="career.pic"/>
-                <CareerDescriptionCard/>
+                <CareerDescriptionCard :careerName="career.career" :description="career.description"/>
                 <div class="chart-container">
-                    <JobsPerYearChart class="chart"/>
-                    <SalaryPerYearChart class="chart"/>
+                    <JobsPerYearChart class="chart" :career-name="career.career"/>
+                    <SalaryPerYearChart class="chart" :career-name="career.career"/>
                 </div>
-                <CareerInsightsCard/>
             </div>
             <div class="col-4">
-                <CareerRequirementsCard/>
-                <TopMentorsCard/>
+                <CareerRequirementsCard class="card"/>
+                <TopMentorsCard class="card"/>
+                <button class="btn btn-primary">Add to My Paths</button>
             </div>
         </div>
 
@@ -28,7 +28,6 @@
     import CareerDescriptionCard from "../assets/CareerDescriptionCard";
     import JobsPerYearChart from "../assets/JobsPerYearChart";
     import SalaryPerYearChart from "../assets/SalaryPerYearChart";
-    import CareerInsightsCard from "../assets/CareerInsightsCard";
     import CareerRequirementsCard from "../assets/CareerRequirementsCard";
     import TopMentorsCard from "../assets/TopMentorsCard";
     import {mapGetters} from "vuex";
@@ -36,8 +35,7 @@
         name: "CareerPage",
         components: {
             TopMentorsCard,
-            CareerRequirementsCard,
-            CareerInsightsCard, SalaryPerYearChart, JobsPerYearChart, CareerDescriptionCard, CareerNameCard
+            CareerRequirementsCard, SalaryPerYearChart, JobsPerYearChart, CareerDescriptionCard, CareerNameCard
         },
         data() {
             return {
@@ -63,6 +61,10 @@
     }
 
     .chart-container{
+    }
+
+    .card{
+        margin: 10px;
     }
 
 </style>
