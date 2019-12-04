@@ -1,15 +1,22 @@
 <template>
 <b-container>
-  <div>
+  <div class="shadow">
+    
     <b-card>
-        <h1>Sign Up</h1>
+        <template v-slot:header>
+            <h1>S<span style="font-size:26px;font-weight:bold;">IGN UP</span>
+            </h1>
+        </template>
+        <b-alert variant="danger" :show="showError" dismissible>{{errorMsg}}</b-alert>
+        <br>
+        <span class="required-class"> * = required </span>
         <br>
         <b-card-text>
-            <StandardForm heading="First Name" type="text" placeHolder="Jane" :val="user.firstName" :parentMethod="changeFirst"/>
-            <StandardForm heading="Last Name" type="text" placeHolder="Doe" :val="user.lastName" :parentMethod="changeLast"/>
-            <StandardForm heading="Email" type="email" placeHolder="jdoe@wonderland.com" :val="user.email" :parentMethod="changeEmail"/>
-            <StandardForm heading="Password" type="password" placeHolder="*******" :val="user.password" :parentMethod="changePass"/>
-            <StandardForm heading="Username" type="text" placeHolder="jDoe" :val="user.username" :parentMethod="changeUsername"/>
+            <StandardForm heading="First Name" type="text" placeHolder="Jane" :val="user.firstName" :parentMethod="changeFirst" :required="'required'"/>
+            <StandardForm heading="Last Name" type="text" placeHolder="Doe" :val="user.lastName" :parentMethod="changeLast" />
+            <StandardForm heading="Email" type="email" placeHolder="jdoe@wonderland.com" :val="user.email" :parentMethod="changeEmail" :required="'required'"/>
+            <StandardForm heading="Password" type="password" placeHolder="*******" :val="user.password" :parentMethod="changePass" :required="'required'"/>
+            <StandardForm heading="Username" type="text" placeHolder="jDoe" :val="user.username" :parentMethod="changeUsername" :required="'required'"/>
             <div style="margin-top:1%;">
                   <b-form-radio-group
                         id="btn-radios-2"
@@ -46,12 +53,17 @@
                     firstName: "",
                     lastName: "",
                     email: "",
-                    type: "mentee"
+                    type: "mentee",
+                    paths: []
                 },
                 options: [
                     { text: 'Mentor', value: 'mentor'},
                     { text: 'Mentee', value: 'mentee'},
-                ]
+                ],
+                            
+                showError: false,
+                errorMsg: "",
+                required: "required",
             }
         },
         methods: {
@@ -75,21 +87,43 @@
                 this.user.email = event.target.value;
             },
             createAccount(){
-                console.log("First Name: ", this.user.firstName);
-                console.log("Last Name: ", this.user.lastName);
-                console.log("Username: ", this.user.username!="");
-                console.log("Email: ", this.user.email);
-                if(this.user.username!=null && this.user.username!="" && this.user.username!= undefined){
+                let res= this.validate()
+                if(res){
                     this.addUser(this.user)
                     this.setLogInUser(this.user)
                     this.$router.push({ path: '/home/'+this.user.username})
                 }
+            },
+            validate(){
+                if(this.user.username==null || this.user.username=="" || this.user.username== undefined){
+                    this.showError = true
+                    this.errorMsg = "Username cannot be empty"
+                    return false;
+                }else if(this.user.password==null || this.user.password=="" || this.user.password== undefined){
+                    this.showError = true
+                    this.errorMsg = "Password cannot be empty"
+                    return false;
+                }else if(this.user.email==null || this.user.email=="" || this.user.email== undefined){
+                    this.showError = true
+                    this.errorMsg = "Email cannot be empty"
+                    return false;
+                }else if(this.user.firstName==null || this.user.firstName=="" || this.user.firstName== undefined){
+                    this.showError = true
+                    this.errorMsg = "First Name cannot be empty"
+                    return false;
+                }else{
+                    return true;
+                }
+
             }
         }
     }
 </script>
 
 <style scoped>
+    .shadow{
+        box-shadow: 4px 4px 4px 4px darkgrey;
+    }
     .heading{
         color: dodgerblue;
         font-size: 32px;
@@ -102,10 +136,15 @@
         font-size: 14px;
     }
     .btn{
-        width: 40%;
+        width: 30%;
     }
     .label {
         padding-top:1%;
         color:dodgerblue;
+    }
+    .required-class{
+        font-size:16px;
+        float:right;
+        color:red;
     }
 </style>

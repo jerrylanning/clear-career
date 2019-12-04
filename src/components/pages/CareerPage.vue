@@ -2,6 +2,12 @@
     <b-container>
         <h1>Career Page</h1>
         <br>
+        <b-modal ref="error-modal" hide-footer title="Error! User Not Logged In">
+            <div class="d-block text-center">
+                <h5>Please Log In to add {{career.career}} to your path</h5>
+            </div>
+            <b-button class="mt-3" variant="outline-danger" block @click="hideModal">I Understand!</b-button>
+        </b-modal>
         <div class="row">
             <div class="col-8">
                 <CareerNameCard :careerName="career.career" :pic-path="career.pic"/>
@@ -14,7 +20,9 @@
             <div class="col-4">
                 <CareerRequirementsCard class="card"/>
                 <TopMentorsCard class="card"/>
-                <button class="btn btn-primary" @click="addToMyPaths">Add to My Paths</button>
+                <button v-if="!containsCareer()" @click="addToMyPaths" class="btn btn-primary" style="background-color: green">Add to My Paths</button>
+                <button v-else @click="removeFromMyPaths" class="btn btn-primary" style="background-color: red">Remove from My Paths</button>
+
             </div>
         </div>
 
@@ -30,7 +38,7 @@
     import SalaryPerYearChart from "../assets/SalaryPerYearChart";
     import CareerRequirementsCard from "../assets/CareerRequirementsCard";
     import TopMentorsCard from "../assets/TopMentorsCard";
-    import {mapGetters} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "CareerPage",
         components: {
@@ -39,28 +47,80 @@
         },
         data() {
             return {
-                career: {}
+                career: {},
+                userLoggedIn: false
             }
         },
         computed: {
             ...mapGetters([
-                'getCareerByName','loggedInUser'
+                'getCareerByName',
+                'loggedInUser'
             ])
         },
         methods: {
-            addToMyPaths(){
+            ...mapActions([
+                'addMyPath',
+                'removeMyPath'
 
-            }
+            ]),
+            containsCareer() {
+                for(let i = 0; i < this.loggedInUser.paths.length; i++) {
+                    console.log(this.loggedInUser.paths[i].career);
+                    console.log(this.career.career);
+                    if(this.loggedInUser.paths[i].career === this.career.career) {
+                        console.log("HELO");
+                        return true
+                    }
+                }
+                return false
+            },
+            addToMyPaths(){
+                if(!this.userLoggedIn){
+                    this.showModal()
+                }
+
+                console.log("the user's paths are " + this.curUserPaths.toString())
+
+                if(!this.followed) {
+                    this.followed = true;
+                    this.addMyPath({userName: this.loggedInUser.username, path: this.career.career})
+                    alert("added")
+                }
+            },
+            removeFromMyPaths(){
+                if(!this.userLoggedIn){
+                    this.showModal()
+                }
+
+                if(this.followed) {
+                    this.followed = false;
+                    this.removeMyPath({userName: this.loggedInUser.username, path: this.careerName})
+                    alert("GONZO")
+                }
+            },
+            showModal() {
+                    this.$refs['error-modal'].show()
+            },
+            hideModal() {
+                    this.$refs['error-modal'].hide()
+            },
         },
         mounted() {
+            if(this.loggedInUser.username!="" && this.loggedInUser.username!=null && this.loggedInUser.username!=undefined ){
+                    this.userLoggedIn = true
+            }
             this.career = this.getCareerByName(this.$route.params.name);
-            let curUser = this.loggedInUser;
+            this.curUserPaths = this.loggedInUser.paths;
+            if(this.curUserPaths.length !== 0){
+                this.followed = this.curUserPaths.includes(this.careerName)
+            } else {
+                this.followed = false;
+            }
 
-            console.log(curUser)
+            console.log("my length of paths is " + this.curUserPaths.length)
+            console.log("this is the answer: " + this.followed)
         }
     }
-
-
 </script>
 
 <style scoped>

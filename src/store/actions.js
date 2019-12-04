@@ -20,5 +20,11 @@ export default {
     editMentorProfileContent: ({commit}, payload) =>{
       commit('changeMentorProfileContent', payload)
     },
+    addMyPath: ({commit}, payload) => {
+        commit('appendMyPath', payload)
+    },
+    removeMyPath: ({commit}, payload) => {
+        commit('deleteMyPath', payload)
+    }
   } 
   

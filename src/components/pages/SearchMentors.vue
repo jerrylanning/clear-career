@@ -1,20 +1,32 @@
 <template>
-    <b-container>
+    <b-container fluid>
         <div>
             <b-card>
-                <h1>Mentors</h1>
-                <div class="search-mentor-box outlineBox">
+            <template v-slot:header>
+                <h1>M<span style="font-size:26px;font-weight:bold;">ENTORS</span>
+                </h1>
+            </template>
+                <b-card >
                     <div class="form-inline">
                         <input class="form-control search-mentor-bar" placeholder="Search by mentors name" @change="updateKeyword"/>
+                        <b-button type="button" v-b-tooltip.hover title="Search Keyword" class="search-icon-div" @click="updateKeyword">
+                            <font-awesome-icon   class="fa-item search-icon" :icon="searchIcon" />
+                        </b-button>
+                        <div v-b-tooltip.hover title="Show filters" class="filter-icon-div" v-b-toggle.collapse-3>
+                            <font-awesome-icon class="fa-item filter-icon" :icon="filterIcon" />
+                        </div>
                     </div>
-                    <div class="form-inline search-mentor-dropdown-container">
+                    <br>
+                    <b-collapse id="collapse-3">
+                        <b-card>
+                            <div class="form-inline search-mentor-dropdown-container">
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Workplace
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" type="button" @click="filterByWorlkplace('Northeastern')">Northeastern</button>
-                                <button class="dropdown-item" type="button" @click="filterByWorlkplace('Home')">Home</button>
+                                <button class="dropdown-item" type="button" @click="filterByWorlkplace('Amazon')">Amazon</button>
                             </div>
                         </div>
                         <div class="dropdown search-mentor-dropdown">
@@ -53,9 +65,12 @@
                     <div class="clearFilters" @click="clearFilters">
                         Clear Filters
                     </div>
-                </div>
+                        </b-card>
+                    </b-collapse>
+
+                </b-card>
                 <div class="mentor-card-container">
-                    <MentorCard  v-for="mentor in currentMentors" :key="mentor.title" :name="mentor.title" :description="mentor.bio"
+                    <MentorCard  v-for="mentor in currentMentors" :key="mentor.title" :username="mentor.username" :name="mentor.title" :description="mentor.bio"
                         :location="mentor.location" :yearsOfExperience="mentor.yearsOfExperience" :workplace="mentor.workplace"/>
                 </div>
                 <!--<b-pagination-->
@@ -76,6 +91,7 @@
 <script>
     import MentorCard from "../assets/MentorCard";
     import {mapGetters} from "vuex";
+    import {faSearch, faFilter}  from '@fortawesome/free-solid-svg-icons'
 
     export default {
         name: "SearchMentors",
@@ -137,7 +153,14 @@
         computed:{
             ...mapGetters([
                 'getAllMentors'
-            ])
+            ]),
+            filterIcon(){
+                return faFilter
+            },
+            searchIcon(){
+                return faSearch
+            }
+
         },
         mounted(){
             this.currentMentors = this.getAllMentors();
@@ -153,9 +176,11 @@
     }
 
     .search-mentor-bar {
-        width: 90%;
-        margin-left: 5%;
+        width: 80%;
+        margin-left: 10%;
         margin-top: 1%;
+
+        border: 2px solid darkgrey;
     }
 
     .search-mentor-dropdown-container {
@@ -196,6 +221,32 @@
     .clearFilters:hover {
         cursor: pointer;
         text-decoration: underline;
+    }
+    .search-icon{
+        font-size:26px;
+        position:relative;
+        color: whitesmoke;
+    }
+    .search-icon-div{
+        width:65px;
+        height:38px;
+        flex:1;
+        position:relative;
+        top:7px;
+        right:65px;
+        background-color: dodgerblue;
+    }
+    .filter-icon{
+
+        font-size:26px;
+        color: dodgerblue;
+    }
+    .filter-icon-div{
+        flex:1;
+        position:relative;
+        cursor: pointer;
+        right:50px;
+        top: 8px;
     }
 
 </style>

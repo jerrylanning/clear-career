@@ -1,35 +1,57 @@
 <template>
-    <div class="graph">
-        <graph-line
-                :width="600"
-                :height="400"
-                :shape="'normal'"
-                :axis-min="0"
-                :axis-max="50"
-                :axis-full-mode="true"
-                :labels="[ '1Q', '2Q', '3Q', '4Q' ]"
-                :names="names"
-                :colors="['cornflowerBlue']"
-                :values="values">
-            <note :text="'Line Chart'"></note>
-        </graph-line>
+    <div class="small">
+        <line-chart :chart-data="datacollection" :style="graphStyles"></line-chart>
     </div>
 </template>
 
 <script>
+    import LineChart from './LineChart'
+
     export default {
-        name: "toDoGraph",
-        data: function () {
+        components: {
+            LineChart
+        },
+        data () {
             return {
-                values: [
-                    [10, 5, 5, 5]
-                ]
+                datacollection: null
+            }
+        },
+        mounted () {
+            this.fillData()
+        },
+        methods: {
+            fillData () {
+                this.datacollection = {
+                    labels: [this.getRandomInt(), this.getRandomInt()],
+                    datasets: [
+                        {
+                            label: 'Data One',
+                            backgroundColor: '#1e90ff',
+                            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+                        }
+                    ]
+                }
+            },
+            getRandomInt () {
+                return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+            }
+        },
+        computed: {
+            graphStyles () {
+                return {
+                    height: '100%',
+                    width:  '80%',
+                    position: 'relative'
+                }
             }
         }
     }
 </script>
 
-<style scoped>
-    .graph {
+<style>
+    .small {
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
     }
 </style>

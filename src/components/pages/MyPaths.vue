@@ -1,7 +1,10 @@
 <template>
-    <b-container>
+    <b-container fluid>
         <b-card v-if="loggedInUser.type === 'mentee'">
-            <h1>{{loggedInUser.username}} Paths</h1>
+        <template v-slot:header>
+            <h1>{{loggedInUser.firstName}}'s Paths
+            </h1>
+        </template>
             <div>
                 <b-tabs content-class="mt-3">
                     <b-tab v-for="career in careers" :key="career.career" :title="career.career" active>
@@ -64,8 +67,8 @@
             this.user = this.loggedInUser;
             console.log(this.loggedInUser);
             for (let i = 0; i < this.loggedInUser.paths.length; i++) {
-                console.log("HELLLLLLLLLLO");
-                this.careers.push(this.getCareerByName(this.user.paths[i]))
+                console.log(this.user.paths[i].career);
+                this.careers.push(this.getCareerByName(this.user.paths[i].career))
             }
         },
         data(){
@@ -103,7 +106,7 @@
     }
 
     .graph-container {
-        background-color: red;
+        width: 100%;
         margin-left: 10%;
     }
     .articles-and-tutorials {

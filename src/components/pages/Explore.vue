@@ -1,16 +1,24 @@
 <template>
-    <b-container>
-        <div class="explore">
+    <b-container fluid>
+        <div class="explore shadow">
             <b-card>
+            <template v-slot:header>
+                <h1>E<span style="font-size:26px;font-weight:bold;">XPLORE</span>
+                </h1>
+            </template>
                 <div class="heading-block">
-                    <h1 class="explore-heading">Explore</h1>
-                    <div class="search-mentors"><router-link to="/search-mentors">Search Mentors</router-link></div>
+                    <div class="search-mentors"><router-link to="/search-mentors">Want to search Mentors? Click here</router-link></div>
                 </div>
-                <div class="search-explore-box outlineBox">
+                <b-card >
                     <div class="form-inline">
                         <input class="form-control search-explore-bar" placeholder="Search Keyword" @change="updateKeyword"/>
+                         <b-button type="button" v-b-tooltip.hover title="Search Keyword" class="search-icon-div" @click="updateKeyword"><font-awesome-icon   class="fa-item search-icon" :icon="searchIcon" /></b-button>
+                         <div v-b-tooltip.hover title="Show filters" class="filter-icon-div" v-b-toggle.collapse-2><font-awesome-icon class="fa-item filter-icon" :icon="filterIcon" /></div>
                     </div>
-                    <div class="form-inline explore-dropdown-container">
+                    <br>
+                    <b-collapse id="collapse-2">
+                        <b-card>
+                                <div class="form-inline explore-dropdown-container">
                         <div class="dropdown">
                             <button class="btn btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Field
@@ -88,8 +96,8 @@
                             </button>
                         </div>
                     </div>
-
                     <div class="slider-container">
+                        <br>
                         <div>Salary</div>
                         <label for="customRange1" class="min-label">0</label>
                         <input @change="rangeFilter" type="range" class="custom-range salary-slider" id="customRange1" :min="0" :max="200000" :value="range"/>
@@ -98,7 +106,10 @@
                     <div class="clearFilters" @click="clearFilters">
                         Clear Filters
                     </div>
-                </div>
+                        </b-card>
+                    </b-collapse>
+                
+                </b-card>
                 <div class="explore-career-container">
                     <CareerCard v-for="career in currentCareers" :key="career.career" :career="career.career"
                                 :description="career.description" :salary="career.salary" :education="career.education" :experience="career.experience"/>
@@ -121,6 +132,7 @@
 <script>
     import CareerCard from "../assets/CareerCard";
     import {mapGetters} from "vuex";
+    import {faSearch, faFilter}  from '@fortawesome/free-solid-svg-icons'
 
     export default {
         name: "Explore",
@@ -251,7 +263,13 @@
         computed:{
             ...mapGetters([
                 'getAllCareers'
-            ])
+            ]),
+            filterIcon(){
+                return faFilter
+            },
+            searchIcon(){
+                return faSearch
+            }
         },
         mounted(){
             this.currentCareers = this.getAllCareers();
@@ -263,6 +281,9 @@
 </script>
 
 <style scoped>
+    .shadow{
+        box-shadow: 4px 4px 4px 4px darkgrey;
+    }
     .explore {
         text-align: center;
     }
@@ -285,6 +306,7 @@
         width: 80%;
         margin-left: 10%;
         margin-top: 1%;
+        border: 2px solid darkgrey;
     }
 
     .explore-dropdown-container {
@@ -325,7 +347,8 @@
         text-align: center;
     }
     .slider-container {
-        width: 100%;
+        width: 80%;
+        margin-left:10%;
     }
     .salary-slider {
         width: 85%;
@@ -338,7 +361,7 @@
     }
     .explore-career-container {
         width: 90%;
-        margin-bottom: 5%;
+        margin-top: 3%;
     }
     .clearFilters {
         text-align: right;
@@ -348,5 +371,30 @@
     .clearFilters:hover {
         cursor: pointer;
         text-decoration: underline;
+    }
+    .search-icon{
+        font-size:26px;
+        position:relative;
+        color: whitesmoke;
+    }
+    .search-icon-div{
+        width:65px;
+        height:38px;
+        position:relative;
+        flex:1;
+        top:7px;
+        right:65px;
+        background-color: dodgerblue;
+    }
+    .filter-icon{
+
+        font-size:26px;
+        color: dodgerblue;
+    }
+    .filter-icon-div{
+        position:relative;
+        right:40px;
+        top: 8px;
+        cursor: pointer;
     }
  </style>

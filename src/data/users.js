@@ -9,7 +9,15 @@ export default [
         city: "",
         careerInterest: "",
         mentors:[],
-        paths: ["Software Engineer", "Elementary Eduction"]
+        paths: [
+            {
+                career: "Software Engineer",
+                finishedRequirements:["AWS Certification"]
+            },
+            {
+                career: "Elementary Education",
+                finishedRequirements: []
+            }]
     },
     {
         username: "mindRead",
@@ -47,7 +55,7 @@ export default [
         username: "rachelM",
         password: "password",
         firstName: "Rachel",
-        title: "Front End Engineer",
+        title: "Rachel",
         lastName: "Malden",
         email: "rachelM@hci.com",
         type: "mentor",
