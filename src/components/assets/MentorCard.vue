@@ -1,13 +1,13 @@
 <template>
     <div class="mentor-card outlineBox">
         <div class="text-container">
-            <div class="name-box"><router-link :to="`/mentor-profile/${routeToMentor}`" class="router-link">{{name}}</router-link></div>
+            <div class="name-box"><router-link :to="`/mentor-profile/${username}`" class="router-link">{{name}}</router-link></div>
             <div class="description-box">{{description}}</div>
             <div class="bottom-box">
                 <div class="credential-box">
-                    <div>Location: {{location}}</div>
-                    <div class="credential">Years of Experience: {{yearsOfExperience}}</div>
-                    <div class="credential">Workplace: {{workplace}}</div>
+                    <div><span style="font-style:italic;">Location: </span> {{location}}</div>
+                    <div class="credential"><span style="font-style:italic;">Years of Experience: </span>{{yearsOfExperience}}</div>
+                    <div class="credential"><span style="font-style:italic;">Workplace: </span>{{workplace}}</div>
                 </div>
             </div>
         </div>
@@ -19,11 +19,11 @@
         name: "MentorCard",
         props: {
             name: String,
-            routeToMentor: String,
             description: String,
             location: String,
             yearsOfExperience: String,
-            workplace: String
+            workplace: String,
+            username: String,
         }
     }
 </script>
@@ -40,6 +40,7 @@
         color: dodgerblue;
         border-bottom: solid lightblue;
         width: 25%;
+        font-size:18px;
     }
     .description-box {
         margin-bottom: 1%;

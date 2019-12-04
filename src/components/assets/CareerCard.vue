@@ -7,14 +7,14 @@
             {{description}}
         </div>
         <div class="quick-facts">
-            <div class="salary">
-                Average Salary: {{salary}}
+            <div class="salary justify">
+                <span  class="justify-right">Income: </span>{{salary}}
             </div>
-            <div class="education">
-                Education: {{education}}
+            <div class="education justify">
+                 <span class="justify-right">Education: </span>{{education}}
             </div>
-            <div class="experience">
-                Experience: {{experience}}
+            <div class="experience justify">
+                <span class="justify-right">Experience: </span> {{experience}}
             </div>
         </div>
     </div>
@@ -39,11 +39,13 @@
         width: 42%;
         display: inline-block;
         margin-left: 8%;
+        margin-top: 2%;
     }
 
     .career {
         position: relative;
         top: 0;
+        font-weight:bold;
     }
 
     .description {
@@ -60,17 +62,24 @@
         float: right;
         border-left-style: solid;
         border-left-color: lightblue;
+        padding-left: 20px;
     }
 
     .salary {
-        margin-top: 3%
+        margin-top: 3%;
     }
 
     .experience {
-        margin-top: 3%
+        margin-top: 3%;
     }
 
     .education {
-        margin-top: 3%
+        margin-top: 3%;
+    }
+    .justify{
+        text-align: left;
+    }
+    .justify-right{
+        font-style: Italic;
     }
 </style>

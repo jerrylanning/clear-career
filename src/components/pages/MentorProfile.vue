@@ -7,12 +7,20 @@
                             </template>
                 
                 <br>
+                <b-modal ref="my-modal" hide-footer title="Error! User Not Logged In">
+                    <div class="d-block text-center">
+                        <h5>Please Log In to follow {{mentor.title}}</h5>
+                    </div>
+                    <b-button class="mt-3" variant="outline-danger" block @click="hideModal">I Understand!</b-button>
+                </b-modal>
                 <div class="flex">
                     <div class="image-div">
                         <img :src="mentor.profilePicture" 
                         width="200" height="200" img-alt="Card image" img-left/>
-                        <div v-if="!isfollowingMentor" style="margin-top:1px;"><b-button @click="followMentor" variant="primary" style="width:200px;">Follow Mentor</b-button></div>
-                        <div v-if="isfollowingMentor" style="margin-top:1px;"><b-button @click="unfollowMentor" variant="outline-primary" style="width:200px;">Unfollow Mentor</b-button></div>
+                        <div>
+                            <div v-if="!isfollowingMentor" style="margin-top:1px;"><b-button @click="followMentor" variant="primary" style="width:200px;">Follow Mentor</b-button></div>
+                            <div v-if="isfollowingMentor" style="margin-top:1px;"><b-button @click="unfollowMentor" variant="outline-primary" style="width:200px;">Unfollow Mentor</b-button></div>
+                        </div>
                     </div>
                     <div style="flex:4;margin:20px;">
                         <div class="title">{{mentor.title}}</div>
@@ -176,7 +184,9 @@
                 isfollowingMentor: false,
                 newTitle: "",
                 showtitleInput: false,
-                newBio: ""
+                newBio: "",
+                userLoggedIn: false,
+                showLoggedInUserError: false
             }
         },
         computed: {
@@ -217,14 +227,17 @@
                     this.isfollowingMentor=false;
             },
             followMentor(){
-                console.log(this.loggedInUser.username)
-                console.log(this.mentor.username)
-                let payload = {
-                    username: this.loggedInUser.username,
-                    mentor: this.mentor.username
+                if(this.userLoggedIn){
+                    let payload = {
+                        username: this.loggedInUser.username,
+                        mentor: this.mentor.username
+                    }
+                    this.addMyMentor(payload)
+                    this.changeStatus()
                 }
-                this.addMyMentor(payload)
-                this.changeStatus()
+                else{
+                    this.showModal()
+                }
             },
             unfollowMentor(){
                 let payload = {
@@ -247,9 +260,18 @@
                 this.mentor.bio = this.newBio
                 this.editMentorProfileContent(this.mentor)
                 this.showtitleInput = false
-            }
+            },
+            showModal() {
+                    this.$refs['my-modal'].show()
+            },
+            hideModal() {
+                    this.$refs['my-modal'].hide()
+            },
         },
         mounted() {
+            if(this.loggedInUser.username!="" && this.loggedInUser.username!=null && this.loggedInUser.username!=undefined ){
+                this.userLoggedIn = true
+            }
             this.user = this.getUserWithUsername(this.loggedInUser.username)[0]
             this.mentor = this.getMentorProfileWithUsername(this.$route.params.name)[0]
             this.experiences = this.mentor.workEx;
