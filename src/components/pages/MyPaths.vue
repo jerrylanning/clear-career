@@ -1,7 +1,10 @@
 <template>
-    <b-container>
+    <b-container fluid>
         <b-card v-if="loggedInUser.type === 'mentee'">
-            <h1>{{loggedInUser.username}} Paths</h1>
+        <template v-slot:header>
+            <h1>{{loggedInUser.firstName}}'s Paths
+            </h1>
+        </template>
             <div>
                 <b-tabs content-class="mt-3">
                     <b-tab v-for="career in careers" :key="career.career" :title="career.career" active>

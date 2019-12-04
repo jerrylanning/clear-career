@@ -2,6 +2,12 @@
     <b-container>
         <h1>Career Page</h1>
         <br>
+        <b-modal ref="error-modal" hide-footer title="Error! User Not Logged In">
+            <div class="d-block text-center">
+                <h5>Please Log In to add {{career.career}} to your path</h5>
+            </div>
+            <b-button class="mt-3" variant="outline-danger" block @click="hideModal">I Understand!</b-button>
+        </b-modal>
         <div class="row">
             <div class="col-8">
                 <CareerNameCard :careerName="career.career" :pic-path="career.pic"/>
@@ -14,7 +20,7 @@
             <div class="col-4">
                 <CareerRequirementsCard class="card"/>
                 <TopMentorsCard class="card"/>
-                <button class="btn btn-primary">Add to My Paths</button>
+                <button @click="addToMyPaths" class="btn btn-primary">Add to My Paths</button>
             </div>
         </div>
 
@@ -39,15 +45,33 @@
         },
         data() {
             return {
-                career: {}
+                career: {},
+                userLoggedIn: false
             }
         },
         computed: {
             ...mapGetters([
-                'getCareerByName'
+                'getCareerByName',
+                'loggedInUser'
             ])
         },
+        methods: {
+            addToMyPaths(){
+                if(!this.userLoggedIn){
+                    this.showModal()
+                }
+            },
+            showModal() {
+                    this.$refs['error-modal'].show()
+            },
+            hideModal() {
+                    this.$refs['error-modal'].hide()
+            },
+        },
         mounted() {
+            if(this.loggedInUser.username!="" && this.loggedInUser.username!=null && this.loggedInUser.username!=undefined ){
+                    this.userLoggedIn = true
+            }
             this.career = this.getCareerByName(this.$route.params.name);
         }
     }
