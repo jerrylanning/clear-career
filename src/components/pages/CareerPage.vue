@@ -94,7 +94,7 @@
                 if(!this.followed) {
                     this.followed = true;
                     this.addMyPath({userName: this.loggedInUser.username, path: this.career.career})
-                    alert("added")
+                    alert("Career was added from your paths.")
                 }
             },
             removeFromMyPaths(){
@@ -105,7 +105,7 @@
                 if(this.followed) {
                     this.followed = false;
                     this.removeMyPath({userName: this.loggedInUser.username, path: this.careerName})
-                    alert("GONZO")
+                    alert("Career was remove from your paths.")
                 }
             },
             showModal() {
