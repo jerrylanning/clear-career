@@ -4,7 +4,7 @@
             <router-link :to="`/career-page/${career}`" class="router-link">{{career}}</router-link>
         </div>
         <div class="description">
-            {{description}}
+            {{description.substring(0,100)}}...
         </div>
         <div class="quick-facts">
             <div class="salary justify">
