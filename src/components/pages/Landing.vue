@@ -7,7 +7,6 @@
             <div class="bottom_buttons">
                 <router-link to="/login" tag="button" class="btn btn-primary">Login</router-link>
                 <router-link to="/register" tag="button" class="btn btn-primary">Sign Up</router-link>
-                <router-link to="/my-mentors" tag="button" class="btn btn-primary">Sign Up</router-link>
             </div>
         </div>
     </div>
