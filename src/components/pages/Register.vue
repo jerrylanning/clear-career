@@ -1,8 +1,12 @@
 <template>
 <b-container>
-  <div>
+  <div class="shadow">
+    
     <b-card>
-        <h1>Sign Up</h1>
+        <template v-slot:header>
+            <h1>S<span style="font-size:26px;font-weight:bold;">IGN UP</span>
+            </h1>
+        </template>
         <br>
         <b-card-text>
             <StandardForm heading="First Name" type="text" placeHolder="Jane" :val="user.firstName" :parentMethod="changeFirst"/>
@@ -90,6 +94,9 @@
 </script>
 
 <style scoped>
+    .shadow{
+        box-shadow: 4px 4px 4px 4px darkgrey;
+    }
     .heading{
         color: dodgerblue;
         font-size: 32px;
