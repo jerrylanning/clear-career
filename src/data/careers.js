@@ -73,7 +73,7 @@ export default [
             ]
     },
     {
-        career: "Elementary Eduction",
+        career: "Elementary Education",
         description: "We always need teachers",
         salary: "50000",
         education: "Bachelors",
@@ -104,7 +104,7 @@ export default [
             },
             {
                 author: "mikeShah",
-                title: "Elementary School Day",
+                title: "Counting with fingers",
                 img: "https://cdn.careeronestop.org/OccVids/OccupationVideos/25-2021.00.jpg",
                 summary: "Teaching 1st graders in smaller schools and kindergartens to count objects with hands instead of their eyes",
                 text: "teaching 1st graders in smaller schools and kindergartens to count objects with hands instead of their eyes.\n" +
