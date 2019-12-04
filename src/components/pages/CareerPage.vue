@@ -21,7 +21,7 @@
                 <CareerRequirementsCard class="card"/>
                 <TopMentorsCard class="card"/>
                 <button v-if="!containsCareer()" @click="addToMyPaths" class="btn btn-primary" style="background-color: green">Add to My Paths</button>
-                <button v-else @click="removeFromMyPaths" class="btn btn-primary" style="background-color: red">Remove from My Paths</button>
+                <button v-else-if="containsCareer()" @click="removeFromMyPaths" class="btn btn-primary" style="background-color: red">Remove from My Paths</button>
 
             </div>
         </div>
@@ -64,15 +64,20 @@
 
             ]),
             containsCareer() {
-                for(let i = 0; i < this.loggedInUser.paths.length; i++) {
-                    console.log(this.loggedInUser.paths[i].career);
-                    console.log(this.career.career);
-                    if(this.loggedInUser.paths[i].career === this.career.career) {
-                        console.log("HELO");
-                        return true
+                if(this.loggedInUser.username) {
+                    for (let i = 0; i < this.loggedInUser.paths.length; i++) {
+                        console.log(this.loggedInUser.paths[i].career);
+                        console.log(this.career.career);
+                        if (this.loggedInUser.paths[i].career === this.career.career) {
+                            console.log("HELO");
+                            return true
+                        }
                     }
+                    return false
+                } else {
+                    return false;
                 }
-                return false
+
             },
             addToMyPaths(){
                 if(!this.userLoggedIn){
@@ -110,13 +115,14 @@
                     this.userLoggedIn = true
             }
             this.career = this.getCareerByName(this.$route.params.name);
-            this.curUserPaths = this.loggedInUser.paths;
-            if(this.curUserPaths.length !== 0){
-                this.followed = this.curUserPaths.includes(this.careerName)
-            } else {
-                this.followed = false;
+            if(this.loggedInUser.username) {
+                this.curUserPaths = this.loggedInUser.paths;
+                if (this.curUserPaths.length !== 0) {
+                    this.followed = this.curUserPaths.includes(this.careerName)
+                } else {
+                    this.followed = false;
+                }
             }
-
             console.log("my length of paths is " + this.curUserPaths.length)
             console.log("this is the answer: " + this.followed)
         }
