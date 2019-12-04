@@ -14,7 +14,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" type="button" @click="filterByWorlkplace('Northeastern')">Northeastern</button>
-                                <button class="dropdown-item" type="button" @click="filterByWorlkplace('Home')">Home</button>
+                                <button class="dropdown-item" type="button" @click="filterByWorlkplace('Amazon')">Amazon</button>
                             </div>
                         </div>
                         <div class="dropdown search-mentor-dropdown">

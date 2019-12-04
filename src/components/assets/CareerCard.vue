@@ -8,13 +8,13 @@
         </div>
         <div class="quick-facts">
             <div class="salary">
-                {{salary}}
+                Average Salary: {{salary}}
             </div>
             <div class="education">
-                {{education}}
+                Education: {{education}}
             </div>
             <div class="experience">
-                {{experience}}
+                Experience: {{experience}}
             </div>
         </div>
     </div>
@@ -36,7 +36,6 @@
 
 <style scoped>
     .career-container {
-        margin-top: 2%;
         width: 42%;
         display: inline-block;
         margin-left: 8%;
@@ -64,14 +63,14 @@
     }
 
     .salary {
-
+        margin-top: 3%
     }
 
     .experience {
-
+        margin-top: 3%
     }
 
     .education {
-
+        margin-top: 3%
     }
 </style>
