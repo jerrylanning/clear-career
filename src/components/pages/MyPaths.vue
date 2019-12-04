@@ -7,11 +7,11 @@
         </template>
             <div>
                 <b-tabs content-class="mt-3">
-                    <b-tab v-for="career in careers" :key="career.career" :title="career.career" active>
+                    <b-tab v-for="career in careers" :key="career.career" @click="changeCareer(career)" :title="career.career" active>
                         <div class="to-do-container">
                             <div class="to-do-list-container">
-                                <to-do-list :toDo="uncheckedToDo" :checked="false"/>
-                                <to-do-list :toDo="checkedToDo" :checked="true"/>
+                                <to-do-list :complete-task="completeTask" :toDo="incompleteTasks" :checked="false"/>
+                                <to-do-list :incomplete-task="incompleteTask" :toDo="completeTasks" :checked="true"/>
                             </div>
                             <div class="graph-container">
                                 <to-do-graph/>
@@ -60,16 +60,71 @@
             ])
         },
         methods: {
-
+            changeCareer(career) {
+                let careerTasks = career.requirements;
+                let incompleteTasks = [];
+                let completeTasks = [];
+                for (let i = 0; i < this.paths.length; i++) {
+                    if(this.paths[i].career === career.career) {
+                        for (let j = 0; j< careerTasks.length; j++) {
+                            for(let k = 0; k < this.paths[i].finishedRequirements.length; k++) {
+                                completeTasks = this.paths[i].finishedRequirements;
+                                if (careerTasks[j].requirement !== this.paths[i].finishedRequirements[k]){
+                                    incompleteTasks.push(careerTasks[j].requirement)
+                                }
+                            }
+                        }
+                    }
+                }
+                this.incompleteTasks = incompleteTasks;
+                this.completeTasks = completeTasks;
+                    console.log(typeof incompleteTasks);
+                console.log(this.incompleteTasks[0]);
+                return incompleteTasks
+            },
+            completeTask(task) {
+                console.log("HELO")
+                for(let i = 0; i < this.incompleteTasks.length; i++) {
+                    console.log(this.incompleteTasks);
+                    if(this.incompleteTasks[i] === task) {
+                        this.incompleteTasks.splice(i, 1);
+                        this.completeTasks.push(task)
+                    }
+                }
+            },
+            incompleteTask(task) {
+                for(let i = 0; i < this.incompleteTasks.length; i++) {
+                    if(this.incompleteTasks[i] === task) {
+                        this.completeTasks.splice(i, 1);
+                        this.incompleteTasks.push(task)
+                    }
+                }
+            }
         },
         mounted(){
-            console.log("HELLO");
             this.user = this.loggedInUser;
-            console.log(this.loggedInUser);
+            this.paths = this.loggedInUser.paths;
             for (let i = 0; i < this.loggedInUser.paths.length; i++) {
-                console.log(this.user.paths[i].career);
                 this.careers.push(this.getCareerByName(this.user.paths[i].career))
             }
+            let career = this.getAllCareers()[2];
+            let careerTasks = career.requirements;
+            let incompleteTasks = [];
+            let completeTasks = [];
+            for (let i = 0; i < this.paths.length; i++) {
+                if(this.paths[i].career === career.career) {
+                    for (let j = 0; j< careerTasks.length; j++) {
+                        for(let k = 0; k < this.paths[i].finishedRequirements.length; k++) {
+                            completeTasks = this.paths[i].finishedRequirements;
+                            if (careerTasks[j].requirement !== this.paths[i].finishedRequirements[k]){
+                                incompleteTasks.push(careerTasks[j].requirement)
+                            }
+                        }
+                    }
+                }
+            }
+            this.incompleteTasks = incompleteTasks;
+            this.completeTasks = completeTasks;
         },
         data(){
             return {
@@ -77,7 +132,10 @@
                 true: true,
                 user: {},
                 articles: [],
+                completeTasks: [],
+                incompleteTasks: [],
                 careers: [],
+                doneTasks: [],
                 uncheckedToDo: [
                     { text: 'uncheck', value: 'uncheck'},
                     { text: 'banana', value: 'banana'}

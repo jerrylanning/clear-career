@@ -27,7 +27,7 @@
                         {
                             label: 'Data One',
                             backgroundColor: '#1e90ff',
-                            data: [this.getRandomInt(), this.getRandomInt(), this.getRandomInt(), this.getRandomInt()]
+                            data: [0,1, 2, 3]
                         }
                     ]
                 }

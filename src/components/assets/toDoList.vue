@@ -1,32 +1,16 @@
 <template>
     <div class="toDoList">
         <div v-if="checked === false">
-            <b-form-group label="Tasks to do">
-                <b-form-checkbox
-                        v-for="option in toDo"
-                        v-model="selected"
-                        v-on:change="alertMe"
-                        :key="option.value"
-                        :value="option.value"
-                        name="flavour-3a"
-                >
-                    {{ option.text }}
-                </b-form-checkbox>
-            </b-form-group>
+            <h5>Tasks To Do</h5>
+            <b-list-group>
+                <b-list-group-item class="task" v-for="option in toDo" :key="option" @click="completeTask(option)">{{option}}</b-list-group-item>
+            </b-list-group>
         </div>
         <div v-else-if="checked === true">
-            <b-form-group label="Tasks Done">
-                <b-form-checkbox
-                        v-for="option in toDo"
-                        v-on:change="alertMe"
-                        v-model="option.value"
-                        :key="option.value"
-                        :value="option.value"
-                        name="flavour-3a"
-                >
-                    {{ option.text }}
-                </b-form-checkbox>
-            </b-form-group>
+            <h5>Tasks Done</h5>
+            <b-list-group>
+                <b-list-group-item class="task" v-for="option in toDo" :key="option" active="true" @click="incompleteTask(option)">{{option}}</b-list-group-item>
+            </b-list-group>
         </div>
     </div>
 </template>
@@ -36,7 +20,9 @@
         name: "toDoList",
         props: {
             toDo: Array,
-            checked: Boolean
+            checked: Boolean,
+            completeTask: {type: Function },
+            incompleteTask: {type: Function }
         },
         data() {
             return {
@@ -45,7 +31,6 @@
         },
         methods: {
             alertMe: function() {
-                alert("Hello World!")
             }
         }
     }
@@ -54,5 +39,8 @@
 <style scoped>
     .toDoList {
         margin-top: 5%;
+    }
+    .task {
+        margin-top: 2%;
     }
 </style>

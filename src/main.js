@@ -15,11 +15,11 @@ import store from './store'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { faSort, faSortDown, faSortUp, faThumbsUp, faThumbsDown} from '@fortawesome/free-solid-svg-icons'
+import { faSort, faSortDown, faSortUp, faThumbsUp, faThumbsDown, faCheck} from '@fortawesome/free-solid-svg-icons'
 import VueGraph from 'vue-graph'
 
 //Adding Font Awesome icons
-library.add(faSort, faSortDown, faSortUp, faThumbsUp, faThumbsDown);
+library.add(faSort, faSortDown, faSortUp, faThumbsUp, faThumbsDown, faCheck);
 library.add(faUserSecret);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
