@@ -16,7 +16,7 @@ export default [
             },
             {
                 career: "Elementary Education",
-                finishedRequirements: []
+                finishedRequirements: ["Certificate of Psychology"]
             }]
     },
     {
