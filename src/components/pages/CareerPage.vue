@@ -20,7 +20,9 @@
             <div class="col-4">
                 <CareerRequirementsCard class="card"/>
                 <TopMentorsCard class="card"/>
-                <button @click="addToMyPaths" class="btn btn-primary">Add to My Paths</button>
+                <button v-if="!containsCareer()" @click="addToMyPaths" class="btn btn-primary" style="background-color: green">Add to My Paths</button>
+                <button v-else @click="removeFromMyPaths" class="btn btn-primary" style="background-color: red">Remove from My Paths</button>
+
             </div>
         </div>
 
@@ -36,7 +38,7 @@
     import SalaryPerYearChart from "../assets/SalaryPerYearChart";
     import CareerRequirementsCard from "../assets/CareerRequirementsCard";
     import TopMentorsCard from "../assets/TopMentorsCard";
-    import {mapGetters} from "vuex";
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "CareerPage",
         components: {
@@ -56,9 +58,44 @@
             ])
         },
         methods: {
+            ...mapActions([
+                'addMyPath',
+                'removeMyPath'
+
+            ]),
+            containsCareer() {
+                for(let i = 0; i < this.loggedInUser.paths.length; i++) {
+                    console.log(this.loggedInUser.paths[i].career);
+                    console.log(this.career.career);
+                    if(this.loggedInUser.paths[i].career === this.career.career) {
+                        console.log("HELO");
+                        return true
+                    }
+                }
+                return false
+            },
             addToMyPaths(){
                 if(!this.userLoggedIn){
                     this.showModal()
+                }
+
+                console.log("the user's paths are " + this.curUserPaths.toString())
+
+                if(!this.followed) {
+                    this.followed = true;
+                    this.addMyPath({userName: this.loggedInUser.username, path: this.career.career})
+                    alert("added")
+                }
+            },
+            removeFromMyPaths(){
+                if(!this.userLoggedIn){
+                    this.showModal()
+                }
+
+                if(this.followed) {
+                    this.followed = false;
+                    this.removeMyPath({userName: this.loggedInUser.username, path: this.careerName})
+                    alert("GONZO")
                 }
             },
             showModal() {
@@ -73,6 +110,15 @@
                     this.userLoggedIn = true
             }
             this.career = this.getCareerByName(this.$route.params.name);
+            this.curUserPaths = this.loggedInUser.paths;
+            if(this.curUserPaths.length !== 0){
+                this.followed = this.curUserPaths.includes(this.careerName)
+            } else {
+                this.followed = false;
+            }
+
+            console.log("my length of paths is " + this.curUserPaths.length)
+            console.log("this is the answer: " + this.followed)
         }
     }
 </script>

@@ -54,6 +54,7 @@
                     lastName: "",
                     email: "",
                     type: "mentee",
+                    paths: []
                 },
                 options: [
                     { text: 'Mentor', value: 'mentor'},
