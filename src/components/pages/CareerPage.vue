@@ -14,7 +14,7 @@
             <div class="col-4">
                 <CareerRequirementsCard class="card"/>
                 <TopMentorsCard class="card"/>
-                <button class="btn btn-primary">Add to My Paths</button>
+                <button class="btn btn-primary" @click="addToMyPaths">Add to My Paths</button>
             </div>
         </div>
 
@@ -44,13 +44,23 @@
         },
         computed: {
             ...mapGetters([
-                'getCareerByName'
+                'getCareerByName','loggedInUser'
             ])
+        },
+        methods: {
+            addToMyPaths(){
+
+            }
         },
         mounted() {
             this.career = this.getCareerByName(this.$route.params.name);
+            let curUser = this.loggedInUser;
+
+            console.log(curUser)
         }
     }
+
+
 </script>
 
 <style scoped>
