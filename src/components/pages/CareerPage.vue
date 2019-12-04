@@ -1,6 +1,10 @@
 <template>
-    <b-container>
-        <h1>Career Page</h1>
+    <b-container fluid>
+        <b-card>
+        <template v-slot:header>
+            <h1>C<span style="font-size:26px;font-weight:bold;">areer Page</span>
+            </h1>
+        </template>
         <br>
         <b-modal ref="error-modal" hide-footer title="Error! User Not Logged In">
             <div class="d-block text-center">
@@ -25,6 +29,7 @@
 
             </div>
         </div>
+        </b-card>
 
 
 

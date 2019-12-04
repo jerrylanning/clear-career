@@ -1,10 +1,10 @@
 <template>
     <div class="career-container outlineBox">
-        <div class="career outlineBox">
+        <h4 class="career outlineBox">
             <router-link :to="`/career-page/${career}`" class="router-link">{{career}}</router-link>
-        </div>
+        </h4>
         <div class="description">
-            {{description.substring(0,100)}}...
+            {{description.substring(0,200)}}...
         </div>
         <div class="quick-facts">
             <div class="salary justify">
@@ -36,7 +36,7 @@
 
 <style scoped>
     .career-container {
-        width: 42%;
+        width: 80%;
         display: inline-block;
         margin-left: 8%;
         margin-top: 2%;
