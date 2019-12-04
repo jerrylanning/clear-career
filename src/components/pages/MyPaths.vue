@@ -67,8 +67,8 @@
             this.user = this.loggedInUser;
             console.log(this.loggedInUser);
             for (let i = 0; i < this.loggedInUser.paths.length; i++) {
-                console.log("HELLLLLLLLLLO");
-                this.careers.push(this.getCareerByName(this.user.paths[i]))
+                console.log(this.user.paths[i].career);
+                this.careers.push(this.getCareerByName(this.user.paths[i].career))
             }
         },
         data(){
@@ -106,7 +106,7 @@
     }
 
     .graph-container {
-        background-color: red;
+        width: 100%;
         margin-left: 10%;
     }
     .articles-and-tutorials {

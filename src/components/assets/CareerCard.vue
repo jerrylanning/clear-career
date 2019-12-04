@@ -36,10 +36,10 @@
 
 <style scoped>
     .career-container {
-        margin-top: 2%;
         width: 42%;
         display: inline-block;
         margin-left: 8%;
+        margin-top: 2%;
     }
 
     .career {
@@ -66,15 +66,15 @@
     }
 
     .salary {
-
+        margin-top: 3%;
     }
 
     .experience {
-
+        margin-top: 3%;
     }
 
     .education {
-
+        margin-top: 3%;
     }
     .justify{
         text-align: left;

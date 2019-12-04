@@ -55,7 +55,7 @@ export default [
         username: "rachelM",
         password: "password",
         firstName: "Rachel",
-        title: "Front End Engineer",
+        title: "Rachel",
         lastName: "Malden",
         email: "rachelM@hci.com",
         type: "mentor",

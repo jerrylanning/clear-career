@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
   <!--This is an example of bootstrap. In the class name of this button we add 'btn' which specifies this is
         a bootstrap button, and we add a second class called btn-primary to add the blue styling so we don't have to
   do this manually-->
@@ -23,10 +23,13 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-navbar-nav class="nav-contents">
-            <b-nav-item>
+            <b-nav-item v-if="loggedInUser.type !== 'mentor'">
               <router-link to="/explore" class="router-link">Explore</router-link>
             </b-nav-item>
-            <b-nav-item>
+            <b-nav-item v-if="loggedInUser.username">
+              <router-link to="/search-mentors" class="router-link">Mentors</router-link>
+            </b-nav-item>
+            <b-nav-item v-if="loggedInUser.type === 'mentor'">
               <router-link to="/advice" class="router-link">Advice</router-link>
             </b-nav-item>
             <b-nav-item v-if="loggedInUser.type === 'mentee'">

@@ -26,7 +26,7 @@
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <button class="dropdown-item" type="button" @click="filterByWorlkplace('Northeastern')">Northeastern</button>
-                                <button class="dropdown-item" type="button" @click="filterByWorlkplace('Home')">Home</button>
+                                <button class="dropdown-item" type="button" @click="filterByWorlkplace('Amazon')">Amazon</button>
                             </div>
                         </div>
                         <div class="dropdown search-mentor-dropdown">
@@ -67,7 +67,7 @@
                     </div>
                         </b-card>
                     </b-collapse>
-                    
+
                 </b-card>
                 <div class="mentor-card-container">
                     <MentorCard  v-for="mentor in currentMentors" :key="mentor.title" :username="mentor.username" :name="mentor.title" :description="mentor.bio"
@@ -179,7 +179,7 @@
         width: 80%;
         margin-left: 10%;
         margin-top: 1%;
-        
+
         border: 2px solid darkgrey;
     }
 

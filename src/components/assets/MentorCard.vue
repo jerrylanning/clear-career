@@ -1,7 +1,7 @@
 <template>
     <div class="mentor-card outlineBox">
         <div class="text-container">
-            <div class="name-box">{{name}}</div>
+            <div class="name-box"><router-link :to="`/mentor-profile/${username}`" class="router-link">{{name}}</router-link></div>
             <div class="description-box">{{description}}</div>
             <div class="bottom-box">
                 <div class="credential-box">
@@ -9,7 +9,6 @@
                     <div class="credential"><span style="font-style:italic;">Years of Experience: </span>{{yearsOfExperience}}</div>
                     <div class="credential"><span style="font-style:italic;">Workplace: </span>{{workplace}}</div>
                 </div>
-                <button class="show-profile-button btn btn-sm btn-primary" @click="showMentorProfile">Show Profile</button>
             </div>
         </div>
     </div>
@@ -25,11 +24,6 @@
             yearsOfExperience: String,
             workplace: String,
             username: String,
-        },
-        methods: {
-            showMentorProfile(){
-                this.$router.push({path: '/mentor-profile/'+this.username})
-            }
         }
     }
 </script>

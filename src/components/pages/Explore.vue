@@ -361,7 +361,7 @@
     }
     .explore-career-container {
         width: 90%;
-        margin-bottom: 5%;
+        margin-top: 3%;
     }
     .clearFilters {
         text-align: right;
