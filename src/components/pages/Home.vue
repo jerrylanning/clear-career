@@ -12,34 +12,38 @@
             <div style="display:flex;">
             <div style="flex:1;margin:5px;">
                 <b-card>
-                    <h4>My Paths</h4>
+                    <h4>Your Paths</h4>
                     <hr>
                     <div class="inside-col">
-                        <p>Progress: somthing%</p>
-                        <Progress value="16.88">
-                        </Progress></div>
+                        <p>Progress: {{progress}}%</p>
+                        <b-progress :value="completedTasks.length" :max="myTasks.length" show-progress animated 
+                        class="progress-bar-class"></b-progress>
+                        </div>
                     <div class="inside-col">
                         <img src="https://cdn.pixabay.com/photo/2015/12/08/18/19/clock-1083479_960_720.png" height="30px">
-                        Avg. time: 90 hrs
+                        Avg. time: {{completedTasks.length*85}} hrs
                     </div>
-
-                    <MyPathsCard/>
+                    <br>
+                    <b-card>
+                        <h5>Your next five tasks:</h5>
+                        <div style="text-align:left;margin-left:30%;">
+                        <b-form-checkbox v-for="task in tasks" :key="task.requirement" class="check">{{task.requirement}}</b-form-checkbox>
+                        </div>
+                </b-card>
                     <br>
                     <router-link to="/my-path" tag="button" class="btn btn-primary">Go to My Path</router-link>
                 </b-card>
             </div>
             <div style="flex:1;margin:5px;">
                 <b-card>
-                <h4>My Mentors</h4>
+                <h4>Your Mentors</h4>
                 <hr>
-                <MyMentorsCard/>
-                <MyMentorsCard/>
+                <MyMentorsCard v-for="mentor in myMentors" :key="mentor.title" :name="mentor.title" :bio="mentor.bio" :profilePicture="'https://www.pngfind.com/pngs/m/110-1102775_download-empty-profile-hd-png-download.png'"/>
                 <br>
                 <router-link to="/my-mentors" tag="button" class="btn btn-primary">Go to My Mentors</router-link>
                 </b-card>
             </div>
             </div>
-        <router-link to="/mentor-profile/mindRead" class="router-link">Mentor profile</router-link>
     </b-card>
     </div>
 </b-container>
@@ -49,26 +53,55 @@
 <script>
 import { mapGetters } from 'vuex'
 import MyMentorsCard from "../assets/MyMentorsCard";
-import MyPathsCard from "../assets/MyPathsCard";
 
     export default {
         name: "Home",
-        components: {MyPathsCard, MyMentorsCard},
+        components: { MyMentorsCard},
         data(){
             return {
-                 user: {}
+                 user: {},
+                 myMentors: [],
+                 myCareers: [],
+                 myTasks: [],
+                 completedTasks: [],
+                 fiveTasks:[],
+                 progress: 0
             }
         },
         computed:{
             ...mapGetters([
-            'getUserWithUsername'
+            'getUserWithUsername',
+            'getCareerByName'
+
             ])
         },
         mounted(){
             this.user = this.getUserWithUsername(this.$route.params.name)[0]
             console.log(this.user)
+            this.user.mentors.forEach(mentor => {
+                let mentorData = this.getUserWithUsername(mentor)[0]
+                this.myMentors.push(mentorData)
+            });      
+            this.user.paths.forEach(path =>{
+                let careerData = this.getCareerByName(path.career);
+                this.myCareers.push(careerData) 
+                path.finishedRequirements.forEach(req =>{
+                    this.completedTasks.push(req);
+                })
+            });
+            this.myCareers.forEach(myCareer => {
+                myCareer.requirements.forEach(req =>{
+                    this.myTasks.push(req);
+                })
+            })
+            for(let i=0;i<5;i++){
+                this.fiveTasks.push(this.myTasks[i])
+            }
+
+            this.progress = Math.floor(this.completedTasks.length / this.myTasks.length *100);
+            console.log(this.progress)
+
         }
-        
     }
 </script>
 
@@ -92,4 +125,9 @@ import MyPathsCard from "../assets/MyPathsCard";
         color: dodgerblue;
     }
 
+    .progress-bar-class{
+        width:80%;
+        margin-bottom:10px;
+        margin-left:10px;
+    }
 </style>

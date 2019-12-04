@@ -3,19 +3,18 @@
         <div class="mentor-card">
             <b-card class="mt-3" >
                 <b-card-text>
-                    <h2>Dr. Mind Reader</h2>
+                    <h5>{{name}}</h5>
                     <hr>
                 </b-card-text>
                     <b-card no-body class="overflow-hidden" style="max-height: 100px">
                         <b-row no-gutters>
                             <b-col md="2">
-                                <b-card-img src="https://picsum.photos/400/400/?image=20" class="rounded-0"></b-card-img>
+                                <b-card-img :src="profilePicture" class="rounded-0"></b-card-img>
                             </b-col>
                             <b-col>
-                                <b-card-body title="Horizontal Card">
+                                <b-card-body>
                                     <b-card-text>
-                                        This is a wider card with supporting text as a natural lead-in to additional content.
-                                        This content is a little bit longer.
+                                        {{bio}}
                                     </b-card-text>
                                 </b-card-body>
                             </b-col>
@@ -29,7 +28,12 @@
 
 <script>
     export default {
-        name: "MyMentorsCard"
+        name: "MyMentorsCard",
+        props: {
+            name: String,
+            bio: String,
+            profilePicture: String
+        }
     }
 </script>
 
