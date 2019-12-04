@@ -1,7 +1,7 @@
 <template>
     <div class="form-check-inline input-box">
         <div class="form-heading">
-            {{heading}}
+            {{heading}} <span class="required-class" v-if="required"> * </span>
         </div>
         <div class="form-field">
             <input class="form-control" @change="parentMethod" :type="type" :placeholder="placeHolder" :value="val"/>
@@ -17,11 +17,12 @@
             placeHolder: String,
             type: String,
             val: String,
+            required: Boolean,
             parentMethod: {type: Function}
         },
         data() {
             return {
-                inputValue: "Alice"
+                inputValue: "Alice",
             };
         },
     }
@@ -39,5 +40,9 @@
     }
     .form-field {
         width: 80%;
+    }
+    .required-class{
+        font-size:16px;
+        color: red;
     }
 </style>

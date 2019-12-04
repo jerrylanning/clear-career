@@ -1,6 +1,6 @@
 <template>
-    <b-container>
-        <div class="explore">
+    <b-container fluid>
+        <div class="explore shadow">
             <b-card>
                 <div class="heading-block">
                     <h1 class="explore-heading">Explore</h1>
@@ -263,6 +263,9 @@
 </script>
 
 <style scoped>
+    .shadow{
+        box-shadow: 4px 4px 4px 4px darkgrey;
+    }
     .explore {
         text-align: center;
     }

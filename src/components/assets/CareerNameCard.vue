@@ -3,7 +3,7 @@
         <b-card-text class="text">
             {{careerName}}
         </b-card-text>
-        <b-progress :max="50" show-value>
+        <b-progress :max="50">
             <b-progress-bar :value="25" variant="success"></b-progress-bar>
         </b-progress>
     </b-card>
