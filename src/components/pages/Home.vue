@@ -1,12 +1,18 @@
 
 <template>
-    <div>
-        <h1>Home</h1>
-        <h4> Hello, {{user.firstName}} </h4>
-            <div class="col">
-                <br>
+<b-container fluid>
+  <div class="shadow">
+    <b-card>
+        <template v-slot:header>
+            <h1>H<span style="font-size:26px;font-weight:bold;">OME</span>
+            </h1>
+        </template>
+            <h3>Hello, {{user.firstName}}</h3>
+            <br>
+            <div style="display:flex;">
+            <div style="flex:1;margin:5px;">
                 <b-card>
-                    <h2>My Paths</h2>
+                    <h4>My Paths</h4>
                     <hr>
                     <div class="inside-col">
                         <p>Progress: somthing%</p>
@@ -22,9 +28,9 @@
                     <router-link to="/my-path" tag="button" class="btn btn-primary">Go to My Path</router-link>
                 </b-card>
             </div>
-            <div class="col">
+            <div style="flex:1;margin:5px;">
                 <b-card>
-                <h2>My Mentors</h2>
+                <h4>My Mentors</h4>
                 <hr>
                 <MyMentorsCard/>
                 <MyMentorsCard/>
@@ -32,8 +38,12 @@
                 <router-link to="/my-mentors" tag="button" class="btn btn-primary">Go to My Mentors</router-link>
                 </b-card>
             </div>
+            </div>
         <router-link to="/mentor-profile/mindRead" class="router-link">Mentor profile</router-link>
+    </b-card>
     </div>
+</b-container>
+       
 </template>
 
 <script>
@@ -63,7 +73,9 @@ import MyPathsCard from "../assets/MyPathsCard";
 </script>
 
 <style scoped>
-
+    .shadow{
+        box-shadow: 4px 4px 4px 4px darkgrey;
+    }
     .col{
         width: 40%;
         display: inline-block;
