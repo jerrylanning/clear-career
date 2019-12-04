@@ -3,7 +3,7 @@
     <div>
         <div class="splash">
             <img src="https://images.pexels.com/photos/747964/pexels-photo-747964.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" class="image-class">
-            <h1>Clear Career<br>Reach new heights!</h1>
+            <h1>ClearCareer<br>Reach new heights!</h1>
             <div class="bottom_buttons">
                 <div class="card-block"> 
                     <div class="card" @click="gotoExplore">Explore</div>

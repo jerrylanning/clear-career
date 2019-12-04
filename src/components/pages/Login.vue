@@ -113,6 +113,6 @@
         font-size: 14px;
     }
     .btn{
-        width: 40%;
+        width: 30%;
     }
 </style>
