@@ -20,7 +20,7 @@ const routes = [
     { path: '/login', component: Login },
     { path: '/profile/:name', component: Profile},
     { path: '/explore', component: Explore},
-    { path: '/mentor-profile', component: MentorProfile},
+    { path: '/mentor-profile/:name', component: MentorProfile, props: true},
     { path: '/search-mentors', component: SearchMentors},
     { path: '/advice', component: Advice},
     { path: '/my-mentors', component: MyMentors},
