@@ -7,13 +7,18 @@
                 :axis-max="3100000"
                 :labels="[ '1980', '1990', '2000', '2010', '2020' ]"
                 :values="values"
-                :colors="['dodgerblue']"></graph-bar>
+                :colors="['dodgerblue']">
+        <note :text="'Number of ' + careerName + ' jobs by year'"></note>
+        </graph-bar>
     </div>
 </template>
 
 <script>
     export default {
         name: "JobsPerYearChart",
+        props: {
+          careerName: String
+        },
         data: function() {
             return{
             values: [

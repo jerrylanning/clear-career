@@ -11,7 +11,7 @@
                 :names="names"
                 :colors="['dodgerblue']"
                 :values="values">
-            <note :text="'Psychologist Annual Average Salary by Year'"></note>
+            <note :text="careerName+ ' Annual Average Salary by Year'"></note>
         </graph-line>
     </div>
 </template>
@@ -19,6 +19,9 @@
 <script>
     export default {
         name: "SalaryPerYearChart",
+        props: {
+            careerName: String
+        },
         data: function () {
             return {
                 values: [
