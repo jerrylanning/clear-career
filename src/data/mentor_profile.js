@@ -21,13 +21,13 @@ export default [
         articles: [
             {
                 title: 'Who Thrives in Confusing Situations',
-                image: 'noImage.png',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnmp3sBMjNxQgVmmym376HOANHUUVWu2Zc-mymYR9n6qH_Y_S32A&s',
                 description: 'New research explores the personality types that respond best to confusion',
                 link: "https://onlinelibrary.wiley.com/doi/full/10.1002/jclp.22892"
             },
             {
                 title: 'Mental Health Issues Among Entrepreneurs',
-                image: 'noImage.png',
+                image: 'https://www.digitalmeetsculture.net/wp-content/uploads/2015/04/article.jpg',
                 description: 'Multiple reports have come in over the last few years that confirm the fact\
                  about entrepreneurs being more susceptible to psychiatric problems than their employees.',
                 link: "https://onlinelibrary.wiley.com/doi/full/10.1002/jclp.22904"
@@ -36,11 +36,11 @@ export default [
         videos: [
             {
                 title: 'Introduction to Psychology',
-                link: "https://www.youtube.com/watch?v=vo4pMVb0R6M"
+                link: "https://www.youtube.com/embed/vo4pMVb0R6M"
             },
             {
                 title: 'Stress in the 21st Century',
-                link: "https://www.youtube.com/watch?v=xp0O2vi8DX4"
+                link: "https://www.youtube.com/embed/xp0O2vi8DX4"
             }
         ]
 
