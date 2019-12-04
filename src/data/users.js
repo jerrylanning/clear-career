@@ -8,6 +8,7 @@ export default [
         type: "mentee",
         city: "",
         careerInterest: "",
+        mentors:[],
         paths: ["Software Engineer", "Elementary Eduction"]
     },
     {
@@ -23,7 +24,8 @@ export default [
         yearsOfExperience: "3-5 Years",
         workplace: "Northeastern",
         jobTitle: "Psychologist",
-        education: "Masters/PhD"
+        education: "Masters/PhD",
+        mentors:[]
     },
     {
         username: "mikeShah",
@@ -38,7 +40,8 @@ export default [
         yearsOfExperience: "5+ Years",
         workplace: "Northeastern",
         jobTitle: "Elementary Eduction",
-        education: "Masters/PhD"
+        education: "Masters/PhD",
+        mentors:[]
     },
     {
         username: "rachelM",
@@ -53,6 +56,7 @@ export default [
         yearsOfExperience: "1-3 Years",
         workplace: "Amazon",
         jobTitle: "Software Engineer",
-        education: "High School"
+        education: "High School",
+        mentors:[]
     }
 ]

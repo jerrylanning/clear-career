@@ -1,32 +1,32 @@
 export default {
     usersCount: (state) => {
-        return() => {
+        return () => {
             return state.users.length
         }
     },
     getAllMentees: (state) => {
-        return() => {
+        return () => {
             return state.users.filter((user) => {
                 return user.type === 'mentee'
             })
         }
     },
     getAllMentors: (state) => {
-        return() => {
+        return () => {
             return state.users.filter((user) => {
                 return user.type === 'mentor'
             })
         }
     },
-    getUserWithUsername(state){
+    getUserWithUsername(state) {
         return (username) => {
-            return state.users.filter((user) =>{
+            return state.users.filter((user) => {
                 return user.username === username
             })
         }
-     },
+    },
     loggedInUser(state){
-      return state.appData.currentUser
+            return state.appData.currentUser
     },
     getAllCareers: (state) => {
         return () => {
@@ -42,12 +42,18 @@ export default {
         }
 
     },
-
     getMentorByCareer: (state) => {
         return (careerName) => {
             return state.users.filter((user) => {
-                return  user.type === "mentor" && user.jobTitle === careerName;
+                return user.type === "mentor" && user.jobTitle === careerName;
             })
         }
-    }
-  }
+    },
+    getMentorProfileWithUsername: (state) => {
+        return (username) => {
+            return state.mentors.filter((mentor) => {
+                return mentor.username === username
+            })
+        }
+    },
+}
