@@ -20,14 +20,14 @@
                         class="progress-bar-class"></b-progress>
                         </div>
                     <div class="inside-col">
-                        <img src="https://cdn.pixabay.com/photo/2015/12/08/18/19/clock-1083479_960_720.png" height="30px">
+                        <font-awesome-icon  class="fa-item" :icon="clockIcon" style="width:30px;" />
                         Avg. time: {{completedTasks.length*85}} hrs
                     </div>
                     <br>
                     <b-card>
                         <h5>Your next five tasks:</h5>
                         <div style="text-align:left;margin-left:30%;">
-                        <b-form-checkbox v-for="task in tasks" :key="task.requirement" class="check">{{task.requirement}}</b-form-checkbox>
+                            <b-form-checkbox v-for="task in fiveTasks" :key="task.requirement">{{task.requirement}}</b-form-checkbox>
                         </div>
                 </b-card>
                     <br>
@@ -53,7 +53,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import MyMentorsCard from "../assets/MyMentorsCard";
-
+import {faClock} from '@fortawesome/free-solid-svg-icons'
     export default {
         name: "Home",
         components: { MyMentorsCard},
@@ -72,8 +72,15 @@ import MyMentorsCard from "../assets/MyMentorsCard";
             ...mapGetters([
             'getUserWithUsername',
             'getCareerByName'
-
-            ])
+            ]),
+            clockIcon(){
+                return faClock
+            }
+        },
+        methods:{
+            addReqAsDone(ev){
+                console.log(ev)
+            }
         },
         mounted(){
             this.user = this.getUserWithUsername(this.$route.params.name)[0]
