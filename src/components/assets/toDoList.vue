@@ -1,6 +1,6 @@
 <template>
     <div class="toDoList">
-        <div v-if="checked === 'false'">
+        <div v-if="checked === false">
             <b-form-group label="Tasks to do">
                 <b-form-checkbox
                         v-for="option in toDo"
@@ -14,7 +14,7 @@
                 </b-form-checkbox>
             </b-form-group>
         </div>
-        <div v-else-if="checked === 'true'">
+        <div v-else-if="checked === true">
             <b-form-group label="Tasks Done">
                 <b-form-checkbox
                         v-for="option in toDo"
@@ -35,7 +35,7 @@
     export default {
         name: "toDoList",
         props: {
-            toDo: String,
+            toDo: Array,
             checked: Boolean
         },
         data() {

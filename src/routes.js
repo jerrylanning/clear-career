@@ -14,7 +14,7 @@ import CareerPage from "./components/pages/CareerPage";
 const routes = [
     { path: '/' , component: Landing},
     { path: '/home/:name', component: Home , props: true },
-    { path: '/my-path/:name', component: MyPaths, props: true},
+    { path: '/my-path', component: MyPaths, props: true},
     { path: '/register', component: Register },
     { path: '/login', component: Login },
     { path: '/profile/:name', component: Profile},

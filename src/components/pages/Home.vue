@@ -3,6 +3,7 @@
     <div>
         <h1>Home</h1>
         <h4> Hello, {{user.firstName}} </h4>
+<<<<<<< HEAD
             <div class="col">
                 <br>
                 <b-card>
@@ -32,6 +33,9 @@
                 <router-link to="/my-mentors" tag="button" class="btn btn-primary">Go to My Mentors</router-link>
                 </b-card>
             </div>
+=======
+        <router-link to="/mentor-profile/mindRead" class="router-link">Mentor profile</router-link>
+>>>>>>> origin/master
     </div>
 </template>
 

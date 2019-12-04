@@ -7,7 +7,9 @@ export default [
         email: "jdoe@hci.com",
         type: "mentee",
         city: "",
-        careerInterest: ""
+        careerInterest: "",
+        mentors:[],
+        paths: ["Software Engineer", "Elementary Eduction"]
     },
     {
         username: "mindRead",
@@ -22,7 +24,8 @@ export default [
         yearsOfExperience: "3-5 Years",
         workplace: "Northeastern",
         jobTitle: "Psychologist",
-        education: "Masters/PhD"
+        education: "Masters/PhD",
+        mentors:[]
     },
     {
         username: "mikeShah",
@@ -36,22 +39,24 @@ export default [
         location: "NH",
         yearsOfExperience: "5+ Years",
         workplace: "Northeastern",
-        jobTitle: "Professor",
-        education: "Masters/PhD"
+        jobTitle: "Elementary Eduction",
+        education: "Masters/PhD",
+        mentors:[]
     },
     {
         username: "rachelM",
         password: "password",
         firstName: "Rachel",
-        title: "Rachel Malden",
-        lastName: "Reader",
+        title: "Front End Engineer",
+        lastName: "Malden",
         email: "rachelM@hci.com",
         type: "mentor",
-        bio: "I write poetry",
+        bio: "I am a software engineer at Amazon",
         location: "NY",
         yearsOfExperience: "1-3 Years",
-        workplace: "Home",
-        jobTitle: "Poet",
-        education: "High School"
+        workplace: "Amazon",
+        jobTitle: "Software Engineer",
+        education: "High School",
+        mentors:[]
     }
 ]

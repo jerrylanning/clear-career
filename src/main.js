@@ -24,7 +24,6 @@ library.add(faSort, faSortDown, faSortUp);
 library.add(faUserSecret);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.config.productionTip = false;
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(BootstrapVue);
 Vue.use(VueGraph);
 const router = new VueRouter({mode: 'history', routes});

@@ -1,7 +1,7 @@
 <template>
     <div class="career-container outlineBox">
         <div class="career outlineBox">
-            {{career}}
+            <router-link :to="`/career-page/${career}`" class="router-link">{{career}}</router-link>
         </div>
         <div class="description">
             {{description}}
