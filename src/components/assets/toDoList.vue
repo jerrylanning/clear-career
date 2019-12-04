@@ -9,8 +9,7 @@
         <div v-else-if="checked === true">
             <h5>Tasks Done</h5>
             <b-list-group>
-                <b-list-group-item class="task" v-for="option in toDo" :key="option" active="true" @click="incompleteTask(option)">
-                    <font-awesome-icon class="fa-item icon" :icon="faCheck"/>{{option}}</b-list-group-item>
+                <b-list-group-item class="task" v-for="option in toDo" :key="option" active="true" @click="incompleteTask(option)">{{option}}</b-list-group-item>
             </b-list-group>
         </div>
     </div>
