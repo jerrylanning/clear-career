@@ -9,7 +9,7 @@
         </template>
             <h3>Hello, {{user.firstName}}</h3>
             <br>
-            <div style="display:flex;">
+            <div style="display:flex;" v-if="loggedInUser.type=='mentee'">
             <div style="flex:1;margin:5px;">
                 <b-card>
                     <h4>Your Paths</h4>
@@ -44,6 +44,10 @@
                 </b-card>
             </div>
             </div>
+            <div style="display:flex;" v-if="loggedInUser.type=='mentor'">
+
+                    <h3 style="text-align: center;margin-left:30%;" >Thank You for your contributions!</h3>
+            </div>
     </b-card>
     </div>
 </b-container>
@@ -71,7 +75,8 @@ import {faClock} from '@fortawesome/free-solid-svg-icons'
         computed:{
             ...mapGetters([
             'getUserWithUsername',
-            'getCareerByName'
+            'getCareerByName',
+                'loggedInUser'
             ]),
             clockIcon(){
                 return faClock
