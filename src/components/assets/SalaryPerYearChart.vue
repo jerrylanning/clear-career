@@ -38,7 +38,6 @@
         margin: 0px;
         display: inline-block;
         float: left;
-        /*outline: 3px solid red;*/
     }
 
 </style>
