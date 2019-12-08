@@ -1,23 +1,23 @@
 <template>
-    <div class="career-container outlineBox">
-        <h4 class="career outlineBox">
-            <router-link :to="`/career-page/${career}`" class="router-link">{{career}}</router-link>
-        </h4>
-        <div class="description">
-            {{description.substring(0,200)}}...
-        </div>
-        <div class="quick-facts">
-            <div class="salary justify">
-                <span  class="justify-right">Income: </span>{{salary}}
-            </div>
-            <div class="education justify">
-                 <span class="justify-right">Education: </span>{{education}}
-            </div>
-            <div class="experience justify">
-                <span class="justify-right">Experience: </span> {{experience}}
-            </div>
-        </div>
-    </div>
+    <b-container class="career-card-container">
+            <b-card class="career-card">
+                <h4 class="career">
+                    <router-link :to="`/career-page/${career}`" class="router-link">{{career}}</router-link>
+                </h4>
+                <b-card-text>
+                    {{description.substring(0,100)}}...
+                </b-card-text>
+                <b-card-text>
+                    <span  style="font-weight: bold;">Income: </span>{{salary}}
+                </b-card-text>
+                <b-card-text>
+                    <span style="font-weight: bold;">Education: </span>{{education}}
+                </b-card-text>
+                <b-card-text>
+                    <span style="font-weight: bold;">Experience: </span> {{experience}}
+                </b-card-text>
+            </b-card>
+    </b-container>
 </template>
 
 <script>
@@ -35,11 +35,15 @@
 
 
 <style scoped>
-    .career-container {
-        width: 80%;
+    .career-card-container {
+        width: 45%;
         display: inline-block;
-        margin-left: 8%;
+        margin-left: 5%;
         margin-top: 2%;
+    }
+
+    .career-card {
+        background-color: #A8D0E6;
     }
 
     .career {
@@ -48,38 +52,4 @@
         font-weight:bold;
     }
 
-    .description {
-        display: inline-block;
-        position: relative;
-        height: 90%;
-        width: 50%;
-    }
-
-    .quick-facts {
-        display: inline-block;
-        width: 50%;
-        height: 90%;
-        float: right;
-        border-left-style: solid;
-        border-left-color: lightblue;
-        padding-left: 20px;
-    }
-
-    .salary {
-        margin-top: 3%;
-    }
-
-    .experience {
-        margin-top: 3%;
-    }
-
-    .education {
-        margin-top: 3%;
-    }
-    .justify{
-        text-align: left;
-    }
-    .justify-right{
-        font-style: Italic;
-    }
 </style>
