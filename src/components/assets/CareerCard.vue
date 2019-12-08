@@ -43,7 +43,7 @@
     }
 
     .career-card {
-        background-color: aliceblue;
+        background-color: #A8D0E6;
     }
 
     .career {

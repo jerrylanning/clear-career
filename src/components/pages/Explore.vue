@@ -290,7 +290,7 @@
     }
 
     .background-explore {
-        background-color: whitesmoke;
+        background-color: #24305E;
     }
     .heading-block {
         display: inline-grid;

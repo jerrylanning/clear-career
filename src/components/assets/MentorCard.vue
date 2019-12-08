@@ -41,7 +41,7 @@
     }
     .career-card {
         margin-top: 2%;
-        background-color: aliceblue;
+        background-color: #A8D0E6;
     }
     .credential {
         margin-left: 10%;
