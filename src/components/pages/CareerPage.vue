@@ -12,6 +12,9 @@
             </div>
             <b-button class="mt-3" variant="outline-danger" block @click="hideModal">I Understand!</b-button>
         </b-modal>
+        <b-modal  ref="accept-modal" id="modal-1" header-bg-variant="success" :title="message.title">
+                <p class="my-4">{{message.body}}</p>
+        </b-modal>
         <div class="row">
             <div class="col-8">
                 <CareerNameCard :careerName="career.career" :pic-path="career.pic"/>
@@ -53,7 +56,12 @@
         data() {
             return {
                 career: {},
-                userLoggedIn: false
+                userLoggedIn: false,
+                message:{
+                    title: "",
+                    body: ""
+                },
+                followed: false
             }
         },
         computed: {
@@ -71,10 +79,7 @@
             containsCareer() {
                 if(this.loggedInUser.username) {
                     for (let i = 0; i < this.loggedInUser.paths.length; i++) {
-                        console.log(this.loggedInUser.paths[i].career);
-                        console.log(this.career.career);
                         if (this.loggedInUser.paths[i].career === this.career.career) {
-                            console.log("HELO");
                             return true
                         }
                     }
@@ -89,23 +94,24 @@
                     this.showModal()
                 }
 
-                console.log("the user's paths are " + this.curUserPaths.toString())
-
                 if(!this.followed) {
                     this.followed = true;
                     this.addMyPath({userName: this.loggedInUser.username, path: this.career.career})
-                    alert("Career was added from your paths.")
+                    this.message.title = "Success!"
+                    this.message.body = "Career was added to your paths."
+                    this.showMessageModal()
                 }
             },
             removeFromMyPaths(){
                 if(!this.userLoggedIn){
                     this.showModal()
                 }
-
                 if(this.followed) {
                     this.followed = false;
-                    this.removeMyPath({userName: this.loggedInUser.username, path: this.careerName})
-                    alert("Career was remove from your paths.")
+                    this.removeMyPath({userName: this.loggedInUser.username, path: this.career.career})
+                    this.message.title = "Success!"
+                    this.message.body = "Career was removed from your paths."
+                    this.showMessageModal()
                 }
             },
             showModal() {
@@ -113,6 +119,12 @@
             },
             hideModal() {
                     this.$refs['error-modal'].hide()
+            },
+            showMessageModal() {
+                    this.$refs['accept-modal'].show()
+            },
+            hideMessageModal() {
+                    this.$refs['accept-modal'].hide()
             },
         },
         mounted() {
