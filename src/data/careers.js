@@ -50,7 +50,12 @@ export default [
     },
     {
         career: "Software Engineer",
-        description: "Software Engineers work in code",
+        description: "Software Engineers work in code. Just like members of any secret society, any messages passed between them are in completely coded languages that only they can understand.\n" +
+            "Even more noteworthy, though, is that they can instruct computers what to do. Some say this makes them dangerous. Others say it makes them assets.\n" +
+            "More importantly, some Software Engineers think this makes them worthy of being among the richest and most powerful people alive, and that they owe the world nothing. More relevantly, though, \n" +
+            "A software engineer is a person who applies the principles of software engineering to the design, development, maintenance, testing, and evaluation of computer software.\n" +
+            "Prior to the mid-1970s, software practitioners generally called themselves computer scientists, computer programmers or software developers, regardless of their actual jobs. Many people prefer to call themselves software developer and programmer, because most widely agree what these terms mean, while the exact meaning of software engineer is still being debated. ",
+        pic: "https://www.sparkcentral.com/wp-content/uploads/2015/11/Hire-engineers.jpeg",
         salary: "100000",
         education: "Bachelors",
         experience: "0-1 years",
@@ -74,7 +79,7 @@ export default [
         articles: [{
             author: "rachelM",
             title: "Front End Framework",
-            img: "https://cdn-media-1.freecodecamp.org/images/1*L3Y8gEdaVoQQo9axLR_9mg.jpeg",
+            img: "https://www.sparkcentral.com/wp-content/uploads/2015/11/Hire-engineers.jpeg",
             summary: "AI generated article",
             text: "front end engineering on that part of the instrument panel, and so long as the dimmed automatic parts and battery are installed in the correct order, it will probably work.\n" +
                 "\n" +
@@ -91,7 +96,10 @@ export default [
     },
     {
         career: "Elementary Education",
-        description: "We always need teachers",
+        description: "We always need teachers. Teachers are, like, really cool, man. We know this dope teacher name Jorge A. Yo, y'all don't even know. This guy's not playin.\n" +
+            "He's not caught up in the bs that some other teachers get bogged down in. It's because he remembers the bs. He remembers when some teachers disenfranchised him. He remembers when they discriminated against him.\n" +
+            "That's not something you can easily forget, not that you'd want to. Remembering events like that can inform your whole strategy in life. And that way, you can work against the former convention, and build the new zeitgeist.",
+        pic: "https://pbs.twimg.com/media/C4eDi9KXUAAJ8Jn.jpg",
         salary: "50000",
         education: "Bachelors",
         experience: "3-5 years",
@@ -139,10 +147,13 @@ export default [
     },
     {
         career: "Spine Surgeon",
-        description: "Good luck, gg",
-        salary: "300000",
+        description: "Good luck, gg. This isn't easy. It's a life commitment. If you want to be a spine surgeon, you can expect to be in post-grad for about a decade.\n" +
+            "Most people don't have that type of stamina. Most people would break in the process. Most people aren't you! You're a badass. Don't let naysayers get you down.\n" +
+            "Get out, and go operate on some spines. Shoot, I could even use help!",
+        pic: "https://www.rwjbh.org/images/MMC/patients-guide-spine-surgery-2.jpg",
+        salary: "350000",
         education: "MD",
-        experience: "5+ years",
+        experience: "10+ years",
         field: "Doctor",
         proximity: 300,
         demand: 100,
