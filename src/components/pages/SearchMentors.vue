@@ -6,7 +6,7 @@
                 <h1>M<span style="font-size:26px;font-weight:bold;">ENTORS</span>
                 </h1>
             </template>
-                <b-card >
+                <b-card class="search-mentor-container">
                     <div class="form-inline">
                         <input class="form-control search-mentor-bar" placeholder="Search by mentors name" @change="updateKeyword"/>
                         <b-button type="button" v-b-tooltip.hover title="Search Keyword" class="search-icon-div" @click="updateKeyword">
@@ -173,6 +173,9 @@
     .search-mentor-box {
         width: 80%;
         margin-left: 10%;
+    }
+    .search-mentor-container {
+        background-color: whitesmoke;
     }
 
     .search-mentor-bar {

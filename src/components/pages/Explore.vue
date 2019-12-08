@@ -9,7 +9,7 @@
                 <div class="heading-block">
                     <div class="search-mentors"><router-link to="/search-mentors">Want to search Mentors? Click here</router-link></div>
                 </div>
-                <b-card >
+                <b-card class="background-explore">
                     <div class="form-inline">
                         <input class="form-control search-explore-bar" placeholder="Search Keyword" @change="updateKeyword"/>
                          <b-button type="button" v-b-tooltip.hover title="Search Keyword" class="search-icon-div" @click="updateKeyword"><font-awesome-icon   class="fa-item search-icon" :icon="searchIcon" /></b-button>
@@ -102,6 +102,7 @@
                         <label for="customRange1" class="min-label">0</label>
                         <input @change="rangeFilter" type="range" class="custom-range salary-slider" id="customRange1" :min="0" :max="200000" :value="range"/>
                         <label for="customRange1" class="max-label">200,000</label>
+                        <div>Max Salary: {{range}}</div>
                     </div>
                     <div class="clearFilters" @click="clearFilters">
                         Clear Filters
@@ -225,7 +226,7 @@
             },
             updateKeyword(event) {
                 let query = event.target.value.toLowerCase();
-                this.currentCareers = this.currentCareers.filter((career) => {
+                this.currentCareers = this.allCareers.filter((career) => {
                     let careerName = career.career.toLocaleLowerCase();
                     return careerName.includes(query)
                 });
@@ -286,6 +287,10 @@
     }
     .explore {
         text-align: center;
+    }
+
+    .background-explore {
+        background-color: whitesmoke;
     }
     .heading-block {
         display: inline-grid;
