@@ -1,10 +1,10 @@
 <template>
     <div>
-        <graph-bar
-                :width="600"
-                :height="400"
+        <graph-bar class="graph"
+                :width="450"
+                :height="300"
                 :axis-min="0"
-                :axis-max="3100000"
+                :axis-max="3300000"
                 :labels="[ '1980', '1990', '2000', '2010', '2020' ]"
                 :values="values"
                 :colors="['dodgerblue']">
@@ -33,5 +33,10 @@
 </script>
 
 <style scoped>
+
+    .graph{
+        display: inline-block;
+        float: left;
+    }
 
 </style>

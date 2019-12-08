@@ -1,8 +1,8 @@
 <template>
     <div class="graph">
         <graph-line
-                :width="600"
-                :height="400"
+                :width="450"
+                :height="300"
                 :shape="'normal'"
                 :axis-min="0"
                 :axis-max="90000"
@@ -33,5 +33,11 @@
 </script>
 
 <style scoped>
+
+    .graph{
+        margin: 0px;
+        display: inline-block;
+        float: left;
+    }
 
 </style>
