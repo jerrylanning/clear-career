@@ -19,14 +19,14 @@
             <div class="col-8">
                 <CareerNameCard :careerName="career.career" :pic-path="career.pic"/>
                 <CareerDescriptionCard :careerName="career.career" :description="career.description"/>
-                <div class="chart-container">
+                <b-card class="chart-container">
                     <JobsPerYearChart class="chart" :career-name="career.career"/>
                     <SalaryPerYearChart class="chart" :career-name="career.career"/>
-                </div>
+                </b-card>
             </div>
             <div class="col-4">
-                <CareerRequirementsCard class="card"/>
-                <TopMentorsCard class="card"/>
+                <CareerRequirementsCard class="card" id="no-margin"/>
+                <TopMentorsCard class="card" id="no-margin"/>
                 <button v-if="!containsCareer()" @click="addToMyPaths" class="btn btn-primary" style="background-color: green">Add to My Paths</button>
                 <button v-else-if="containsCareer()" @click="removeFromMyPaths" class="btn btn-primary" style="background-color: red">Remove from My Paths</button>
 
@@ -150,7 +150,7 @@
 
     .chart{
         width: 50%;
-        margin: 10px;
+        /*margin: 10px;*/
     }
 
     .chart-container{
@@ -158,6 +158,10 @@
 
     .card{
         margin: 10px;
+    }
+
+    #no-margin{
+        margin-left: 0px;
     }
 
 </style>
