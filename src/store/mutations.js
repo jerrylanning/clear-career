@@ -46,5 +46,27 @@ export default {
       })
       givenMentor[0] = mentorProfile;
     },
+    appendTasks: (state, data) => {
+      let givenMentor = state.mentors.filter((mentor) => {
+        return mentor.username === data.username
+      })[0]
+      givenMentor.tasks.push(data.task)
+    },
+    appendTutorials: (state, data) => {
+      let givenMentor = state.mentors.filter((mentor) => {
+        return mentor.username === data.username
+      })[0]
+      givenMentor.videos.push(data.tutorial)
+    },
+    appendArticles: (state, data) => {
+      let givenMentor = state.mentors.filter((mentor) => {
+        return mentor.username === data.username
+      })[0]
+      console.log(givenMentor)
+      givenMentor.articles.push(data.article)
+    },
+    appendNewMentorProfile: (state, user) => {
+      state.mentors.push(user)
+    },
   }
   

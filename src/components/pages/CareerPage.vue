@@ -12,7 +12,7 @@
             </div>
             <b-button class="mt-3" variant="outline-danger" block @click="hideModal">I Understand!</b-button>
         </b-modal>
-        <b-modal  ref="accept-modal" id="modal-1" header-bg-variant="success" :title="message.title">
+        <b-modal  ref="accept-modal" id="modal-1" centered header-bg-variant="success" :title="message.title">
                 <p class="my-4">{{message.body}}</p>
         </b-modal>
         <div class="row">
