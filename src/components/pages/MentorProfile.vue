@@ -146,7 +146,7 @@
                             <template v-slot:header>
                                 <div style="display:flex;">
                                 <h6 class="mb-0" style="flex:1">Articles</h6>
-                                <font-awesome-icon class="fa-item" :icon="plusIcon" @click="showArticleModal" />
+                                <font-awesome-icon v-b-tooltip.hover title="Add Article" class="fa-item" :icon="plusIcon" @click="showArticleModal" />
                                 </div>
                             </template>
                             <b-card-text>
@@ -159,7 +159,7 @@
                             <template v-slot:header>
                                 <div style="display:flex;">
                                 <h6 class="mb-0" style="flex:1">Tutorials</h6>
-                                <font-awesome-icon style="float:right;" class="fa-item" :icon="plusIcon" @click="showTutorialModal" />
+                                <font-awesome-icon v-b-tooltip.hover title="Add Tutorial" style="float:right;" class="fa-item" :icon="plusIcon" @click="showTutorialModal" />
                                 </div>
                             </template>
                             <b-card-text>
