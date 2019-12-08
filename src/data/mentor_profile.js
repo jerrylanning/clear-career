@@ -42,8 +42,39 @@ export default [
                 title: 'Stress in the 21st Century',
                 link: "https://www.youtube.com/embed/xp0O2vi8DX4"
             }
-        ]
+        ],
+        tasks: [
+            {
+                name: "Read Intro to Psychology 101",
+                description: "",
+                link: "",
 
+            }, 
+            {
+                name: "Observe the habits of close ones and create a report",
+                description: "",
+                link: ""
+            }, 
+            { 
+                name: "College shortlist", 
+                description: "",
+                link: ""
+            },
+            {
+                name:"Psychology Exam Preparation",
+                description: "",
+                link: ""
+            }, 
+            {
+                name: "Study and make a report on Habits of highly successful people",
+                description: "",
+                link: ""
+            }, 
+            {  
+                name:"Read Understanding the mind of the influenced",
+                description: "",
+                link: ""
+            } ]
     },
     {
         username: 'mikeShah',

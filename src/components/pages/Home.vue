@@ -7,7 +7,7 @@
             <h1>H<span style="font-size:26px;font-weight:bold;">OME</span>
             </h1>
         </template>
-            <h3>Hello, {{user.firstName}}</h3>
+            <h3>Hello, {{user.firstName}}!</h3>
             <br>
             <div style="display:flex;" v-if="loggedInUser.type=='mentee'">
             <div style="flex:1;margin:5px;">
@@ -35,18 +35,29 @@
                 </b-card>
             </div>
             <div style="flex:1;margin:5px;">
+
                 <b-card>
                 <h4>Your Mentors</h4>
                 <hr>
+                <br>
+                <br>
                 <MyMentorsCard v-for="mentor in myMentors" :key="mentor.title" :name="mentor.title" :bio="mentor.bio" :profilePicture="'https://www.pngfind.com/pngs/m/110-1102775_download-empty-profile-hd-png-download.png'"/>
                 <br>
                 <router-link to="/my-mentors" tag="button" class="btn btn-primary">Go to My Mentors</router-link>
                 </b-card>
             </div>
             </div>
-            <div style="display:flex;" v-if="loggedInUser.type=='mentor'">
+            <div  v-if="loggedInUser.type=='mentor'">
 
-                    <h3 style="text-align: center;margin-left:30%;" >Thank You for your contributions!</h3>
+                    <h5 style="text-align:center; align-self:center;" >Thank You for your contributions</h5>
+                    <div style="display:flex;">
+                        <b-card style="width:30%;margin:10%;"> 
+                            <b-button variant="primary" @click="redirectToAdvice">Go to My advice</b-button>
+                        </b-card>
+                         <b-card style="width:30%;margin:10%;"> 
+                            <b-button variant="primary"  @click="redirectToProfile">Go to My Mentor Profile</b-button>
+                        </b-card>
+                    </div>
             </div>
     </b-card>
     </div>
@@ -76,7 +87,7 @@ import {faClock} from '@fortawesome/free-solid-svg-icons'
             ...mapGetters([
             'getUserWithUsername',
             'getCareerByName',
-                'loggedInUser'
+            'loggedInUser'
             ]),
             clockIcon(){
                 return faClock
@@ -85,7 +96,14 @@ import {faClock} from '@fortawesome/free-solid-svg-icons'
         methods:{
             addReqAsDone(ev){
                 console.log(ev)
+            },
+            redirectToAdvice(){
+                this.$router.push({path: "/advice"})
+            },
+            redirectToProfile(){
+                this.$router.push({path: '/mentor-profile/'+this.loggedInUser.username})
             }
+
         },
         mounted(){
             this.user = this.getUserWithUsername(this.$route.params.name)[0]

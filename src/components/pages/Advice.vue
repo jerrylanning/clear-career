@@ -1,128 +1,110 @@
 <template>
-    <div class="advice-container">
-        <b-card class="b-card-container">
-            <h1 class="heading"> My Advice </h1>
-            <div class="row">
-                <b-card id="curate-column"
-                     class="col-2">
-                    <h2 class="curate">Curate</h2>
-                    <button id="to-do-button"
-                            class="btn btn-lg btn-primary"
-                            type="button">
-                        To-Do List
-                    </button>
+<b-container fluid>
+        <b-card>
+            <template v-slot:header>
+                <h1>M<span style="font-size:26px;font-weight:bold;">Y</span> A<span style="font-size:26px;font-weight:bold;">DVICE</span>
+                </h1>
+            </template>
+            <b-card title="Curate">
                     <button id="articles-button"
                             class="btn btn-lg btn-primary"
-                            type="button">
+                            type="button"
+                            style="margin:1%"
+                             @click="showArticleModal">
                         Articles
+                           
                     </button>
                     <button id="tutorials-button"
                             class="btn btn-lg btn-primary"
-                            type="button">
+                            type="button"
+                            style="margin:1%"
+                             @click="showTutorialModal">
                         Tutorials
                     </button>
-                </b-card>
-                <b-card id="tasks-column"
-                     class="col-6">
-                    <h2 class="top-rated-tasks">Top-Rated Tasks</h2>
+            </b-card>
+            <div style="align-self:center;display:flex;">
+                <b-card id="tasks-column">
+                    <h4 class="top-rated-tasks">Top-Rated Tasks</h4>
+                    <hr>
                     <ol>
-                        <li>
+                        <li v-for="task in tasks" :key="task.name">
                             <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Eat good food, go vegan</div>
+                                <font-awesome-icon class="fa-item" :icon="faEmptyThumbUp"/>
+                                <font-awesome-icon class="fa-item " :icon="faEmptyThumbDown"/>
+                                <div style="margin-left:5px;">{{task.name}}</div>
                             </div>
                         </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Get good sleep</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Drink a lot of water</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Go outside</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Be social, talk to your crush</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Take your vitamins</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Brush your teeth and tongue</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Get good health insurance</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Put the max into your 401k</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="task-item">
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbUp"/>
-                                <font-awesome-icon class="fa-item icon" :icon="faEmptyThumbDown"/>
-                                <div>Stretch every morning</div>
-                            </div>
-                        </li>
+                        <br/>
                     </ol>
                 </b-card>
-                <b-card id="add-task-column"
-                     class="col-4">
-                    <h2 class="add-task">Add Task</h2>
-                    <input class="add-task-title" type="text" placeholder="Task Name">
-                    <input class="add-task-body" type="text" placeholder="Task Description" >
-                    <div class="attach-file">
-                        <div>Attach File</div>
-                    </div>
-                    <div class="link">
-                        <div>Link</div>
-                    </div>
+                <b-modal id="modal-add-task" ref="modal-add-task" centered size="sm" header-bg-variant="success" title="Success">Successfully added {{messagetype}}</b-modal>
+                <b-card id="tasks-column">
+                    <h4 class="top-rated-tasks">Add Tasks</h4>
+                    <hr>
+                    <b-form-input class="input-text" v-model="taskName" placeholder="Task Name"></b-form-input>
+                    <b-form-textarea
+                            id="textarea"
+                            v-model="taskDesc"
+                            placeholder="Task Description..."
+                            rows="5"
+                            style="margin-top:2%"
+                            ></b-form-textarea>
+                    <b-form-input class="input-text" v-model="taskLink" placeholder="Link"></b-form-input>
+                    <b-button class="input-text" variant="outline-success" @click="addTaskToList">Add task</b-button>
                 </b-card>
+                 <b-modal id="modal-article" ref="modal-article" hide-footer centered size="lg" title="Add Article" >
+                     <b-form-input class="input-text" v-model="articleName" placeholder="Article Title"></b-form-input>
+                     <b-form-input class="input-text" v-model="articleImage" placeholder="Article Image Link"></b-form-input>
+                    <b-form-textarea
+                        id="textarea"
+                        v-model="articleDesc"
+                        placeholder="Article Description..."
+                        rows="5"
+                        style="margin-top:2%"
+                        ></b-form-textarea>
+                    <b-form-input class="input-text" v-model="articleLink" placeholder="Link to article"></b-form-input>
+                    <b-button class="input-text" variant="outline-success" style="text-align:center;float:right;" @click="addArticleToList">Add Article</b-button>
+                 </b-modal>
+                <b-modal id="modal-tutorial" ref="modal-tutorial" hide-footer centered size="lg" title="Add tutorial">
+                    <b-form-input class="input-text" v-model="tutorialName" placeholder="Tutorial Name"></b-form-input>
+                    <b-form-input class="input-text" v-model="tutorialLink" placeholder="Link to tutorial. Please add embed link only "></b-form-input>
+                    <b-button class="input-text" variant="outline-success" style="text-align:center;float:right;" @click="addTutorialToList">Add tutorial</b-button>
+                 </b-modal>
             </div>
         </b-card>
-    </div>
+</b-container>
 </template>
 
 <script>
     import {faThumbsUp} from '@fortawesome/free-regular-svg-icons';
     import {faThumbsDown} from '@fortawesome/free-regular-svg-icons';
+    import { mapGetters,mapActions } from 'vuex'
 
     export default {
         name: "Advice",
+        data(){
+            return{
+                taskName:"",
+                taskDesc: "",
+                taskLink: "",
+                tasks: [],
+                mentor: {},
+                messagetype: "",
+                articleName: "",
+                articleImage: "",
+                articleDesc: "",
+                articleLink:"",
+                tutorialName: "",
+                tutorialLink: ""
+
+            }
+        },
 
         computed: {
+            ...mapGetters([
+            'getMentorProfileWithUsername',
+            'loggedInUser'
+            ]),
             faEmptyThumbUp() {
                 return faThumbsUp;
             },
@@ -130,132 +112,109 @@
                 return faThumbsDown;
             }
         },
+        methods:{
+            ...mapActions([
+                'addTasks',
+                'addTutorials',
+                'addArticles'
+            ]),
+            addTaskToList(){
+                let payload={
+                    name: this.taskName,
+                    description: this.taskDesc,
+                    link: this.taskLink
+                }
+                let data = {
+                    username: this.loggedInUser.username,
+                    task: payload
+                }
+                console.log(data)
+                this.addTasks(data)
+                this.messagetype="tasks"
+                this.showMessageModal()
+
+            },
+            addArticleToList(){
+                let payload={
+                    title: this.articleName,
+                    image: this.articleImage,
+                    description: this.articleDesc,
+                    link: this.articleLink
+                }
+                let data = {
+                    username: this.loggedInUser.username,
+                    article: payload
+                }
+                console.log(data)
+                this.addArticles(data)
+                this.messagetype="article"
+                this.hideArticleModal()
+                
+                this.showMessageModal()
+            },
+            addTutorialToList(){
+                let payload={
+                    title: this.tutorialName,
+                    link: this.tutorialLink
+                }
+                let data = {
+                    username: this.loggedInUser.username,
+                    tutorial: payload
+                }
+                console.log(data)
+                this.addTutorials(data)
+                this.messagetype="tutorial"
+                this.hideTutorialModal()
+                
+                this.showMessageModal()
+            },
+            showMessageModal() {
+                    this.$refs['modal-add-task'].show()
+            },
+            hideMessageModal() {
+                    this.$refs['modal-add-task'].hide()
+            },
+            showArticleModal() {
+                    this.$refs['modal-article'].show()
+            },
+            hideArticleModal() {
+                    this.$refs['modal-article'].hide()
+            },
+            showTutorialModal() {
+                    this.$refs['modal-tutorial'].show()
+            },
+            hideTutorialModal() {
+                    this.$refs['modal-tutorial'].hide()
+            },
+        },
+        mounted(){
+            this.mentor = this.getMentorProfileWithUsername(this.loggedInUser.username)[0]
+            this.tasks = this.mentor.tasks
+        }
+
     }
 </script>
 
 
 <style scoped>
-    .advice-container {
-        width: 100vw;
-    }
-
-    .heading {
-        margin: 2% 0;
-    }
 
     .task-item {
-        justify-content: flex-start;
         display: flex;
-        float: left;
-        width: 100%;
-    }
-
-    .icon {
-        flex: 1;
-    }
-
-    #curate-column {
-        width: 20%;
-        height: 72vh;
-        text-align: center;
-        border: 3px solid lightgray;
+        margin: 10px;
     }
 
     #tasks-column {
-        width: 45%;
-        border: 3px solid lightgray;
-    }
-
-    #add-task-column {
-        width: 35%;
-        border: 4px solid lightgray;
-    }
-
-    .curate{
-        margin-bottom: 32px;
-    }
-    .top-rated-tasks{
-        margin-bottom: 32px;
-    }
-    .add-task{
-        margin-bottom: 32px;
-    }
-
-    #to-do-button{
-        width: 128px;
-        height: 64px;
-        padding: 2px;
-        margin: 5vh 0;
-    }
-    #articles-button{
-        width: 128px;
-        height: 64px;
-        padding: 2px;
-        margin: 5vh 0;
-    }
-    #tutorials-button{
-        width: 128px;
-        height: 64px;
-        padding: 2px;
-        margin: 5vh 0;
-    }
-
-    .add-task-title{
-        width: 100%;
-        border: 2px solid lightgray;
-        margin-bottom: 6px;
-    }
-
-    .add-task-body{
-        width: 100%;
-        height: 40%;
-        border: 2px solid lightgray;
-    }
-
-    .attach-file{
-        text-align: left;
-        margin: 6px 0 2px;
-        display: flex;
-    }
-    .link{
-        text-align: left;
-        display: flex;
+        width: 60%;
+        border: 1px solid lightgray;
+        margin: 1%;
     }
 
     li {
-        float: left;
         margin-bottom: 8px;
-        margin-right: 51%;
-    }
-    li > div > div{
-        margin-left: 6px;
     }
 
-    col-6{
-        margin-bottom: 16px;
+    .input-text{
+        margin-top: 2%;
     }
-
-    /*@media screen and (min-width: 1250px) {*/
-    /*    #curate-column > button {*/
-    /*        width: 112px;*/
-    /*        height: 56px;*/
-    /*        padding: 8px;*/
-    /*        display: block;*/
-    /*        text-align: center;*/
-    /*        margin-left: 20%;*/
-    /*        margin-top: 10%*/
-    /*    }*/
-    /*}*/
-
-    /*@media screen and (max-width: 1250px) {*/
-    /*    #curate-column > button {*/
-    /*        width: 1000px;*/
-    /*        height: 56px;*/
-    /*        padding: 8px;*/
-    /*        display: block;*/
-    /*        text-align: center;*/
-    /*        margin-top: 10%*/
-    /*    }*/
-    /*}*/
 
 </style>

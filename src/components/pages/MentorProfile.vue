@@ -144,7 +144,10 @@
                         </b-card>
                         <b-card header-tag="header" footer-tag="footer" class="article-card">
                             <template v-slot:header>
-                                <h6 class="mb-0">Articles</h6>
+                                <div style="display:flex;">
+                                <h6 class="mb-0" style="flex:1">Articles</h6>
+                                <font-awesome-icon class="fa-item" :icon="plusIcon" @click="showArticleModal" />
+                                </div>
                             </template>
                             <b-card-text>
                                 <ArticleCard v-for="article in mentor.articles" :key="article.title"
@@ -154,7 +157,10 @@
                         </b-card>
                         <b-card header-tag="header" footer-tag="footer" class="article-card">
                             <template v-slot:header>
-                                <h6 class="mb-0">Tutorials</h6>
+                                <div style="display:flex;">
+                                <h6 class="mb-0" style="flex:1">Tutorials</h6>
+                                <font-awesome-icon style="float:right;" class="fa-item" :icon="plusIcon" @click="showTutorialModal" />
+                                </div>
                             </template>
                             <b-card-text>
                                 <TutorialCard v-for="video in mentor.videos" :key="video.link"
@@ -162,6 +168,25 @@
                                     :title="video.title"/>
                             </b-card-text>
                         </b-card>
+                         <b-modal id="modal-article" ref="modal-article" hide-footer centered size="lg" title="Add Article" >
+                     <b-form-input class="input-text" v-model="articleName"  style="margin-top:2%" placeholder="Article Title"></b-form-input>
+                     <b-form-input class="input-text" v-model="articleImage" style="margin-top:2%" placeholder="Article Image Link"></b-form-input>
+                    <b-form-textarea
+                        id="textarea"
+                        v-model="articleDesc"
+                        placeholder="Article Description..."
+                        rows="5"
+                        style="margin-top:2%"
+                        ></b-form-textarea>
+                    <b-form-input class="input-text" v-model="articleLink" style="margin-top:2%" placeholder="Link to article"></b-form-input>
+                    <b-button class="input-text" variant="outline-success" style="text-align:center;float:right;margin-top:2%" @click="addArticleToList">Add Article</b-button>
+                 </b-modal>
+                <b-modal id="modal-tutorial" ref="modal-tutorial" hide-footer centered size="lg" title="Add tutorial">
+                    <b-form-input class="input-text" style="margin-top:2%" v-model="tutorialName" placeholder="Tutorial Name"></b-form-input>
+                    <b-form-input class="input-text" style="margin-top:2%"  v-model="tutorialLink" placeholder="Link to tutorial. Please add embed link only "></b-form-input>
+                    <b-button class="input-text" variant="outline-success" style="text-align:center;float:right;margin-top:2%" @click="addTutorialToList">Add tutorial</b-button>
+                 </b-modal>
+                 <b-modal id="modal-add-task" ref="modal-add-task" centered size="sm" header-bg-variant="success" title="Success">Successfully added {{messagetype}}</b-modal>
             </div>
 
         </div>
@@ -172,7 +197,7 @@
     import {mapGetters,mapActions} from 'vuex';
     import ArticleCard from "../assets/ArticleCard";
     import TutorialCard from "../assets/TutorialCard";
-    import {faEdit, faSave}  from '@fortawesome/free-solid-svg-icons'
+    import {faEdit, faSave, faPlus}  from '@fortawesome/free-solid-svg-icons'
     export default {
         name: "MentorProfile",
         components: {ArticleCard, TutorialCard},
@@ -186,7 +211,14 @@
                 showtitleInput: false,
                 newBio: "",
                 userLoggedIn: false,
-                showLoggedInUserError: false
+                showLoggedInUserError: false,
+                articleName: "",
+                articleImage: "",
+                articleDesc: "",
+                articleLink:"",
+                tutorialName: "",
+                tutorialLink: "",
+                messagetype: "",
             }
         },
         computed: {
@@ -206,13 +238,18 @@
             },
             saveIcon(){
                 return faSave
+            },
+            plusIcon(){
+                return faPlus
             }
         },
         methods: {
             ...mapActions([
                 'addMyMentor',
                 'removeMyMentor',
-                'editMentorProfileContent'
+                'editMentorProfileContent',
+                 'addTutorials',
+                'addArticles'
             ]),
             changeStatus(){
                 if(!this.isfollowingMentor) { 
@@ -266,6 +303,58 @@
             },
             hideModal() {
                     this.$refs['my-modal'].hide()
+            },
+            showArticleModal() {
+                    this.$refs['modal-article'].show()
+            },
+            hideArticleModal() {
+                    this.$refs['modal-article'].hide()
+            },
+            showTutorialModal() {
+                    this.$refs['modal-tutorial'].show()
+            },
+            hideTutorialModal() {
+                    this.$refs['modal-tutorial'].hide()
+            },
+                        addArticleToList(){
+                let payload={
+                    title: this.articleName,
+                    image: this.articleImage,
+                    description: this.articleDesc,
+                    link: this.articleLink
+                }
+                let data = {
+                    username: this.loggedInUser.username,
+                    article: payload
+                }
+                console.log(data)
+                this.addArticles(data)
+                this.messagetype="article"
+                this.hideArticleModal()
+                
+                this.showMessageModal()
+            },
+            addTutorialToList(){
+                let payload={
+                    title: this.tutorialName,
+                    link: this.tutorialLink
+                }
+                let data = {
+                    username: this.loggedInUser.username,
+                    tutorial: payload
+                }
+                console.log(data)
+                this.addTutorials(data)
+                this.messagetype="tutorial"
+                this.hideTutorialModal()
+                
+                this.showMessageModal()
+            },
+            showMessageModal() {
+                    this.$refs['modal-add-task'].show()
+            },
+            hideMessageModal() {
+                    this.$refs['modal-add-task'].hide()
             },
         },
         mounted() {

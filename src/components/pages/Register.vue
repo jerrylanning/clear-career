@@ -53,8 +53,18 @@
                     firstName: "",
                     lastName: "",
                     email: "",
-                    type: "mentee",
-                    paths: []
+                    paths: [],
+                    mentors: [],
+                    careerInterest: "",
+                    city: "",
+                    type: "",
+                    title: "",
+                    bio: "",
+                    location: "",
+                    yearsOfExperience: "",
+                    workplace: "",
+                    jobTitle: "",
+                    education: ""
                 },
                 options: [
                     { text: 'Mentor', value: 'mentor'},
@@ -69,7 +79,8 @@
         methods: {
             ...mapActions([
                 'addUser',
-                'setLogInUser'
+                'setLogInUser',
+                'addNewMentorProfile'
             ]),
             changeUsername(event) {
                 this.user.username = event.target.value;
@@ -90,6 +101,23 @@
                 let res= this.validate()
                 if(res){
                     this.addUser(this.user)
+                    
+                    if(this.user.type==="mentor"){
+                        let payload = {
+                            username: this.user.username,
+                            profilePicture: 'https://i0.wp.com/acaweb.org/wp-content/uploads/2018/12/profile-placeholder.png?fit=300%2C300&ssl=1',
+                            bio: this.user.bio,
+                            title: this.user.title,
+                            career: this.user.career,
+                            yoe: this.user.yearsOfExperience,
+                            education: this.user.education,
+                            articles: [],
+                            videos: [],
+                            tasks: []
+                        }
+                        this.addNewMentorProfile(payload)
+
+                    }
                     this.setLogInUser(this.user)
                     this.$router.push({ path: '/home/'+this.user.username})
                 }

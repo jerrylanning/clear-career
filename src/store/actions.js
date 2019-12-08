@@ -25,6 +25,18 @@ export default {
     },
     removeMyPath: ({commit}, payload) => {
         commit('deleteMyPath', payload)
-    }
+    },
+    addTasks:({commit},payload) =>{
+      commit('appendTasks', payload)
+    },
+    addTutorials:({commit},payload) =>{
+      commit('appendTutorials', payload)
+    },
+    addArticles:({commit},payload) =>{
+      commit('appendArticles', payload)
+    },
+    addNewMentorProfile:({commit},payload) =>{
+      commit('appendNewMentorProfile', payload)
+    },
   } 
   
