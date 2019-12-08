@@ -175,7 +175,7 @@
         margin-left: 10%;
     }
     .search-mentor-container {
-        background-color: #24305E;
+        background-color: whitesmoke;
     }
 
     .search-mentor-bar {
