@@ -97,7 +97,7 @@ export default {
       this.$router.push({ path: '/'})
     },
     showUserHome(){
-      this.$router.push({ path: '/home/'+this.loggedInUser.username})
+      this.$router.push({ path: '/home/' +this.loggedInUser.username})
     }
   },
   mounted(){
