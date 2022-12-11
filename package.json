@@ -18,7 +18,7 @@
     "bootstrap-slider": "^10.6.2",
     "chart.js": "^2.9.3",
     "core-js": "^3.3.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
     "vue-chartjs": "^3.5.0",
